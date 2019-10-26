@@ -1,0 +1,9 @@
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\bin\Debug\netstandard2.0\Sys.Reponsitory.deps.json
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\bin\Debug\netstandard2.0\Sys.Reponsitory.dll
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\bin\Debug\netstandard2.0\Sys.Reponsitory.pdb
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.AssemblyInfo.cs
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.dll
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.pdb
+C:\Users\Admin\Documents\Project\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.csprojAssemblyReference.cache
