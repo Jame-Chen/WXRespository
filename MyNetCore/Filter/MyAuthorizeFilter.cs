@@ -21,7 +21,11 @@ namespace MyNetCore.Filter
         public override async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
             await base.OnAuthorizationAsync(context);
-            if (!context.HttpContext.User.Identity.IsAuthenticated || context.Filters.Any(item => item is IAllowAnonymousFilter))
+            if (context.Filters.Any(item => item is IAllowAnonymousFilter))
+            {
+                return;
+            }
+            if (!context.HttpContext.User.Identity.IsAuthenticated)
             {
                 var data = new
                 {
@@ -31,6 +35,7 @@ namespace MyNetCore.Filter
                 context.Result = new JsonResult(data);
                 return;
             }
+
         }
     }
 }

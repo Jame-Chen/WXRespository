@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -17,6 +18,7 @@ namespace Sys.Reponsitory.Domain.Model
         /// 菜单名称
         /// </summary>
         [Description("菜单名称")]
+        [StringLength(50)]
         public string Name { get; set; }
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace Sys.Reponsitory.Domain.Model
         /// 图标
         /// </summary>
         [Description("图标")]
-
+        [StringLength(50)]
         public string Icon { get; set; }
         /// <summary>
         /// 当前状态
@@ -44,6 +46,7 @@ namespace Sys.Reponsitory.Domain.Model
         /// 创建人ID
         /// </summary>
         [Description("创建人ID")]
+        [StringLength(50)]
         public string CreateId { get; set; }
     }
 }

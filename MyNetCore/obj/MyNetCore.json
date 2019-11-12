@@ -664,14 +664,20 @@
         "type": "object",
         "properties": {
           "name": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "parentId": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "integer",
             "format": "int32"
           },
           "status": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "integer",
             "format": "int32"
           },
@@ -681,10 +687,14 @@
             "nullable": true
           },
           "createId": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "id": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }
@@ -695,6 +705,8 @@
         "type": "object",
         "properties": {
           "name": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -703,6 +715,8 @@
             "format": "int32"
           },
           "icon": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -716,10 +730,14 @@
             "nullable": true
           },
           "createId": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "id": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }
@@ -730,6 +748,8 @@
         "type": "object",
         "properties": {
           "name": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -743,10 +763,14 @@
             "nullable": true
           },
           "createId": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "id": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }
@@ -757,18 +781,26 @@
         "type": "object",
         "properties": {
           "fileName": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "filePath": {
+            "maxLength": 200,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "description": {
+            "maxLength": 250,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "fileType": {
+            "maxLength": 20,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -777,6 +809,8 @@
             "format": "int64"
           },
           "extension": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -796,6 +830,8 @@
             "nullable": true
           },
           "createUserName": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -805,18 +841,26 @@
             "nullable": true
           },
           "thumbnail": {
+            "maxLength": 200,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "ownTable": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "ownId": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "id": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }
@@ -827,14 +871,20 @@
         "type": "object",
         "properties": {
           "account": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "password": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "name": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
@@ -852,10 +902,14 @@
             "nullable": true
           },
           "createId": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "id": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }

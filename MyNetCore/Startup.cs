@@ -21,12 +21,14 @@ using Sys.Service;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using Sys.Reponsitory.Interface;
-using MyNetCore.Extenions;
 using Microsoft.Extensions.Logging;
 using MyNetCore.Filter;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
+using MySql;
+using Microsoft.AspNetCore.HttpOverrides;
+using System.Net;
 
 namespace MyNetCore
 {
@@ -51,6 +53,10 @@ namespace MyNetCore
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
             });
             //跨域
             services.AddCors(options =>
@@ -133,7 +139,7 @@ namespace MyNetCore
 
 
             var conn = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
+            services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
             services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Sys.Service") }, null, ServiceLifetime.Scoped);
 
         }
@@ -155,7 +161,13 @@ namespace MyNetCore
             app.UseCors("AllowSubdomain");
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             app.UseAuthentication();
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

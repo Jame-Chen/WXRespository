@@ -13,8 +13,10 @@ namespace Sys.Reponsitory
         public SysDbContext(DbContextOptions<SysDbContext> options)
            : base(options)
         {
-           
+            base.Database.EnsureCreated();
         }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var assembly = Assembly.GetExecutingAssembly();

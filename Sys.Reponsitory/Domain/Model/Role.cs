@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -17,6 +18,7 @@ namespace Sys.Reponsitory.Domain.Model
         /// 角色名称
         /// </summary>
         [Description("角色名称")]
+        [StringLength(50)]
         public string Name { get; set; }
         /// <summary>
         /// 当前状态
@@ -32,6 +34,7 @@ namespace Sys.Reponsitory.Domain.Model
         /// 创建人ID
         /// </summary>
         [Description("创建人ID")]
+        [StringLength(50)]
         public string CreateId { get; set; }
     }
 }

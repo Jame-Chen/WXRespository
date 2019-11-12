@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace MyNetCore.Controllers
 {
     [Route("api/[controller]/[action]")]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
 
