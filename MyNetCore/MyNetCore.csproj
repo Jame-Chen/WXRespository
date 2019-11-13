@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+	<StartupObject></StartupObject>
   </PropertyGroup>
 
 

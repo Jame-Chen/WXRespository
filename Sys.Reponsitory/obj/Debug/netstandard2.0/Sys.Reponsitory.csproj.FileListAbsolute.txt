@@ -15,3 +15,4 @@ D:\陈静\Git项目\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Repon
 D:\陈静\Git项目\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.AssemblyInfo.cs
 D:\陈静\Git项目\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.dll
 D:\陈静\Git项目\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.pdb
+D:\陈静\Git项目\MyNetCore\Sys.Reponsitory\obj\Debug\netstandard2.0\Sys.Reponsitory.csprojAssemblyReference.cache
