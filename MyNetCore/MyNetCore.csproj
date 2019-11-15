@@ -8,6 +8,10 @@
 	<StartupObject></StartupObject>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="IdentityServer4" Version="2.5.2" />

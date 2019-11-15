@@ -54,17 +54,17 @@ namespace MyNetCore
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
-            });
+            //services.Configure<ForwardedHeadersOptions>(options =>
+            //{
+            //    options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
+            //});
             //跨域
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSubdomain",
                 builder =>
                 {
-                   // builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                 });
             });
             //身份认证
@@ -156,7 +156,7 @@ namespace MyNetCore
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                //app.UseHsts();
+                app.UseHsts();
             }
             app.UseCors("AllowSubdomain");
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));

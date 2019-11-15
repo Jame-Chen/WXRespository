@@ -9,7 +9,6 @@ D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Sys.Reponsitory.
 D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Sys.Service.dll
 D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Sys.Reponsitory.pdb
 D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Sys.Service.pdb
-D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csprojAssemblyReference.cache
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csproj.CoreCompileInputs.cache
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorAssemblyInfo.cache
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorAssemblyInfo.cs
@@ -32,3 +31,4 @@ D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.Views.
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csproj.CopyComplete
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.dll
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csprojAssemblyReference.cache
