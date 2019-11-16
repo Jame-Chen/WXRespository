@@ -1,0 +1,37 @@
+2019-11-16 14:56:27,074 [10] INFO  MyNetCore.Filter.ActionFilter - 地址：localhost:5001/api/Login/Authenticate 
+ 方式：GET 
+ 请求体： 
+ 参数：{}
+ 结果：{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGkiLCJpc3MiOiJNeU5ldENvcmUiLCJpZCI6IjEiLCJuYW1lIjoiQm9iQ2hlbiIsImlkcCI6IjEyMzQ1NiIsIm5iZiI6MTU3Mzg4NzM4NiwiZXhwIjoxNTc0NDkyMTg2LCJpYXQiOjE1NzM4ODczODZ9.KvDYwQwQVZJR-BxUZkPpkM2CIAWyGTt3oa_iMo0oV4Y","token_type":"Bearer","profile":{"auth_time":1573887386,"expires_at":1574492186}}
+ 耗时：17.3402 毫秒（指控制器内对应方法执行完毕的时间）
+ MyNetCore.Filter.ActionFiltername2019-11-16 14:56:37,334 [10] INFO  MyNetCore.Filter.ActionFilter - 地址：localhost:5001/api/Login/Authenticate 
+ 方式：GET 
+ 请求体： 
+ 参数：{}
+ 结果：{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGkiLCJpc3MiOiJNeU5ldENvcmUiLCJpZCI6IjEiLCJuYW1lIjoiQm9iQ2hlbiIsImlkcCI6IjEyMzQ1NiIsIm5iZiI6MTU3Mzg4NzM5NywiZXhwIjoxNTc0NDkyMTk3LCJpYXQiOjE1NzM4ODczOTd9.ml1TtmFL2mI-gFLaKzNV4jb1vtKFfQTCZuaWh3Qsn4U","token_type":"Bearer","profile":{"auth_time":1573887397,"expires_at":1574492197}}
+ 耗时：0.3041 毫秒（指控制器内对应方法执行完毕的时间）
+ MyNetCore.Filter.ActionFiltername2019-11-16 14:56:42,551 [7] INFO  MyNetCore.Filter.ActionFilter - 地址：localhost:5001/api/Login/Authenticate 
+ 方式：GET 
+ 请求体： 
+ 参数：{}
+ 结果：{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGkiLCJpc3MiOiJNeU5ldENvcmUiLCJpZCI6IjEiLCJuYW1lIjoiQm9iQ2hlbiIsImlkcCI6IjEyMzQ1NiIsIm5iZiI6MTU3Mzg4NzQwMiwiZXhwIjoxNTc0NDkyMjAyLCJpYXQiOjE1NzM4ODc0MDJ9.IieTp93xjXkPnrgdHt2CZY0YpeK8SmADwVAtt06NNKQ","token_type":"Bearer","profile":{"auth_time":1573887402,"expires_at":1574492202}}
+ 耗时：0.1198 毫秒（指控制器内对应方法执行完毕的时间）
+ MyNetCore.Filter.ActionFiltername2019-11-16 14:58:17,272 [20] INFO  MyNetCore.Filter.ActionFilter - 地址：localhost:5001/api/Login/Authenticate 
+ 方式：GET 
+ 请求体： 
+ 参数：{}
+ 结果：{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGkiLCJpc3MiOiJNeU5ldENvcmUiLCJpZCI6IjEiLCJuYW1lIjoiQm9iQ2hlbiIsImlkcCI6IjEyMzQ1NiIsIm5iZiI6MTU3Mzg4NzQ5NywiZXhwIjoxNTc0NDkyMjk3LCJpYXQiOjE1NzM4ODc0OTd9.LdkgQk_sHZD6mH-OynpRbp0ele-o8e2LJ9nIlj2vyBs","token_type":"Bearer","profile":{"auth_time":1573887497,"expires_at":1574492297}}
+ 耗时：0.3588 毫秒（指控制器内对应方法执行完毕的时间）
+ MyNetCore.Filter.ActionFiltername2019-11-16 14:58:26,110 [20] INFO  MyNetCore.Filter.ActionFilter - 地址：localhost:5001/api/Login/Authenticate 
+ 方式：GET 
+ 请求体： 
+ 参数：{}
+ 结果：{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGkiLCJpc3MiOiJNeU5ldENvcmUiLCJpZCI6IjEiLCJuYW1lIjoiQm9iQ2hlbiIsImlkcCI6IjEyMzQ1NiIsIm5iZiI6MTU3Mzg4NzUwNiwiZXhwIjoxNTc0NDkyMzA2LCJpYXQiOjE1NzM4ODc1MDZ9.ph6XsCMwPa6e8Uo23wF02oFia2xwBLdqsWa4woNi6zU","token_type":"Bearer","profile":{"auth_time":1573887506,"expires_at":1574492306}}
+ 耗时：0.2891 毫秒（指控制器内对应方法执行完毕的时间）
+ MyNetCore.Filter.ActionFiltername2019-11-16 19:48:39,843 [37] INFO  MyNetCore.Filter.ActionFilter - 地址：localhost:5001/api/Login/Authenticate 
+ 方式：GET 
+ 请求体： 
+ 参数：{}
+ 结果：{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGkiLCJpc3MiOiJNeU5ldENvcmUiLCJpZCI6IjEiLCJuYW1lIjoiQm9iQ2hlbiIsImlkcCI6IjEyMzQ1NiIsIm5iZiI6MTU3MzkwNDkxOSwiZXhwIjoxNTc0NTA5NzE5LCJpYXQiOjE1NzM5MDQ5MTl9.UPD-wKldgHE4UbTyDezqjWv6eWdxeG6Pd-lGOgMMaQc","token_type":"Bearer","profile":{"auth_time":1573904919,"expires_at":1574509719}}
+ 耗时：1.419 毫秒（指控制器内对应方法执行完毕的时间）
+ MyNetCore.Filter.ActionFiltername
