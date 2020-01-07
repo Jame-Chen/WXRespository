@@ -1,9 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using MyNetCore.Models;
 
-
-    public class ModelStateFilter : IActionFilter
+public class ModelStateFilter : IActionFilter
     {
         public void OnActionExecuted(ActionExecutedContext context)
         {
@@ -22,11 +22,11 @@ using Microsoft.AspNetCore.Mvc.Filters;
                         ret += error.ErrorMessage + "|";
                     }
                 }
-                var data = new
+                var data = new Result
                 {
-                    code = 400,
-                    msg = "数据验证失败!",
-                    result = ret
+                    Code = "400",
+                    Msg = "数据验证失败!",
+                    Data = ret
                 };
                 context.Result = new JsonResult(data);
             }

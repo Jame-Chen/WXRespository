@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sys.Reponsitory", "Sys.Repo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sys.Service", "Sys.Service\Sys.Service.csproj", "{EFE19B58-7E2D-4F5D-8217-1B3659617EDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{8B3BBCF5-3989-4176-99D0-4FE57EE15406}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{8B3BBCF5-3989-4176-99D0-4FE57EE15406}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sys.Common", "Sys.Common\Sys.Common.csproj", "{5898136C-AE73-4E04-87F1-F3627FDD2D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8B3BBCF5-3989-4176-99D0-4FE57EE15406}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B3BBCF5-3989-4176-99D0-4FE57EE15406}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B3BBCF5-3989-4176-99D0-4FE57EE15406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5898136C-AE73-4E04-87F1-F3627FDD2D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5898136C-AE73-4E04-87F1-F3627FDD2D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5898136C-AE73-4E04-87F1-F3627FDD2D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5898136C-AE73-4E04-87F1-F3627FDD2D9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
