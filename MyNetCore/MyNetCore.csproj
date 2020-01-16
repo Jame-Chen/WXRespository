@@ -24,8 +24,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Sys.Reponsitory\Sys.Reponsitory.csproj" />
-    <ProjectReference Include="..\Sys.Service\Sys.Service.csproj" />
+    <ProjectReference Include="..\Reponsitory\Reponsitory.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
 

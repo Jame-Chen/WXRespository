@@ -5045,7 +5045,7 @@
           "lib/netstandard2.0/Z.EntityFramework.Plus.EFCore.dll": {}
         }
       },
-      "Sys.Reponsitory/1.0.0": {
+      "Reponsitory/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -5055,17 +5055,17 @@
           "Z.EntityFramework.Plus.EFCore": "1.8.18"
         },
         "compile": {
-          "bin/placeholder/Sys.Reponsitory.dll": {}
+          "bin/placeholder/Reponsitory.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Sys.Reponsitory.dll": {}
+          "bin/placeholder/Reponsitory.dll": {}
         }
       },
       "Sys.Service/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Sys.Reponsitory": "1.0.0"
+          "Reponsitory": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Sys.Service.dll": {}
@@ -13673,15 +13673,15 @@
         "z.entityframework.plus.efcore.nuspec"
       ]
     },
-    "Sys.Reponsitory/1.0.0": {
+    "Reponsitory/1.0.0": {
       "type": "project",
-      "path": "../Sys.Reponsitory/Sys.Reponsitory.csproj",
-      "msbuildProject": "../Sys.Reponsitory/Sys.Reponsitory.csproj"
+      "path": "../Reponsitory/Reponsitory.csproj",
+      "msbuildProject": "../Reponsitory/Reponsitory.csproj"
     },
     "Sys.Service/1.0.0": {
       "type": "project",
-      "path": "../Sys.Service/Sys.Service.csproj",
-      "msbuildProject": "../Sys.Service/Sys.Service.csproj"
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13691,8 +13691,8 @@
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "MySql.Data.EntityFrameworkCore >= 8.0.18",
+      "Reponsitory >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.0.0-rc3",
-      "Sys.Reponsitory >= 1.0.0",
       "Sys.Service >= 1.0.0",
       "log4net >= 2.0.8"
     ]
@@ -13727,11 +13727,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "D:\\陈静\\Git项目\\MyNetCore\\Sys.Reponsitory\\Sys.Reponsitory.csproj": {
-              "projectPath": "D:\\陈静\\Git项目\\MyNetCore\\Sys.Reponsitory\\Sys.Reponsitory.csproj"
+            "D:\\陈静\\Git项目\\MyNetCore\\Reponsitory\\Reponsitory.csproj": {
+              "projectPath": "D:\\陈静\\Git项目\\MyNetCore\\Reponsitory\\Reponsitory.csproj"
             },
-            "D:\\陈静\\Git项目\\MyNetCore\\Sys.Service\\Sys.Service.csproj": {
-              "projectPath": "D:\\陈静\\Git项目\\MyNetCore\\Sys.Service\\Sys.Service.csproj"
+            "D:\\陈静\\Git项目\\MyNetCore\\Service\\Service.csproj": {
+              "projectPath": "D:\\陈静\\Git项目\\MyNetCore\\Service\\Service.csproj"
             }
           }
         }

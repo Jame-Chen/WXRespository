@@ -29,8 +29,8 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "MySql.Data.EntityFrameworkCore": "8.0.18",
+          "Reponsitory": "1.0.0",
           "Swashbuckle.AspNetCore": "5.0.0-rc3",
-          "Sys.Reponsitory": "1.0.0",
           "Sys.Service": "1.0.0",
           "log4net": "2.0.8"
         },
@@ -616,7 +616,7 @@
           "lib/netstandard2.0/Z.EntityFramework.Plus.EFCore.dll": {}
         }
       },
-      "Sys.Reponsitory/1.0.0": {
+      "Reponsitory/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0",
@@ -624,15 +624,15 @@
           "Z.EntityFramework.Plus.EFCore": "1.8.18"
         },
         "runtime": {
-          "Sys.Reponsitory.dll": {}
+          "Reponsitory.dll": {}
         },
         "compile": {
-          "Sys.Reponsitory.dll": {}
+          "Reponsitory.dll": {}
         }
       },
       "Sys.Service/1.0.0": {
         "dependencies": {
-          "Sys.Reponsitory": "1.0.0"
+          "Reponsitory": "1.0.0"
         },
         "runtime": {
           "Sys.Service.dll": {}
@@ -4077,7 +4077,7 @@
       "path": "z.entityframework.plus.efcore/1.8.18",
       "hashPath": "z.entityframework.plus.efcore.1.8.18.nupkg.sha512"
     },
-    "Sys.Reponsitory/1.0.0": {
+    "Reponsitory/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
