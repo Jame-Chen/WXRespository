@@ -1,11 +1,11 @@
-﻿using Sys.Reponsitory.Core;
-using Sys.Reponsitory.Interface;
+﻿using Reponsitory.Core;
+using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Sys.Service
+namespace Service
 {
     public class BaseService<T> where T : Entity
     {

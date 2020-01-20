@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Sys.Reponsitory.Interface
+namespace Reponsitory.Interface
 {
     public interface IReponsitory<T> where T : class
     {

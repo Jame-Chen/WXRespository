@@ -529,6 +529,18 @@
         }
       }
     },
+    "/api/User/Test": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/User/Get": {
       "get": {
         "tags": [

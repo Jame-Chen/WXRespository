@@ -14,8 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using MyNetCore.Middleware;
-using Sys.Reponsitory;
-using Sys.Service;
+using Reponsitory;
+using Service;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using MyNetCore.Filter;
@@ -133,8 +133,9 @@ namespace MyNetCore
 
 
             var conn = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
-            services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Sys.Service") }, null, ServiceLifetime.Scoped);
+            services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
+            //services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
+            services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Service") }, null, ServiceLifetime.Scoped);
 
         }
 

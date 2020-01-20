@@ -1,11 +1,11 @@
 ﻿
-using Sys.Reponsitory.Domain.Model;
-using Sys.Reponsitory.Interface;
+using Reponsitory.Model;
+using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sys.Service
+namespace Service
 {
     public class RoleService : BaseService<Role>
     {

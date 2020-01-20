@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Sys.Reponsitory;
-using Sys.Reponsitory.Core;
-using Sys.Reponsitory.Interface;
+using Reponsitory;
+using Reponsitory.Core;
+using Reponsitory.Interface;
 using Z.EntityFramework.Plus;
 
-namespace Sys.Reponsitory
+namespace Reponsitory
 {
     public class BaseReponsitory<T> : IReponsitory<T> where T : Entity
     {
@@ -148,7 +148,7 @@ namespace Sys.Reponsitory
 
         private IQueryable<T> Filter(Expression<Func<T, bool>> exp)
         {
-            var dbSet = _context.Set<T>().AsNoTracking().AsQueryable();
+            var dbSet = _context.Set<T>().AsNoTracking();
             if (exp != null)
                 dbSet = dbSet.Where(exp);
             return dbSet;

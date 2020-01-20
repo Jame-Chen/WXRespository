@@ -17,7 +17,7 @@
     "optimize": false,
     "keyFile": "",
     "emitEntryPoint": true,
-    "xmlDoc": false,
+    "xmlDoc": true,
     "debugType": "portable"
   },
   "targets": {
@@ -30,8 +30,8 @@
           "Microsoft.NETCore.App": "2.2.0",
           "MySql.Data.EntityFrameworkCore": "8.0.18",
           "Reponsitory": "1.0.0",
+          "Service": "1.0.0",
           "Swashbuckle.AspNetCore": "5.0.0-rc3",
-          "Sys.Service": "1.0.0",
           "log4net": "2.0.8"
         },
         "runtime": {
@@ -630,15 +630,15 @@
           "Reponsitory.dll": {}
         }
       },
-      "Sys.Service/1.0.0": {
+      "Service/1.0.0": {
         "dependencies": {
           "Reponsitory": "1.0.0"
         },
         "runtime": {
-          "Sys.Service.dll": {}
+          "Service.dll": {}
         },
         "compile": {
-          "Sys.Service.dll": {}
+          "Service.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4082,7 +4082,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Sys.Service/1.0.0": {
+    "Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

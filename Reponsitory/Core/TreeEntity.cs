@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Sys.Reponsitory.Core
+namespace Reponsitory.Core
 {
     /// <summary>
     /// 树状结构实体

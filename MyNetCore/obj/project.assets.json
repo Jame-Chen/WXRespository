@@ -5061,17 +5061,17 @@
           "bin/placeholder/Reponsitory.dll": {}
         }
       },
-      "Sys.Service/1.0.0": {
+      "Service/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Reponsitory": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Sys.Service.dll": {}
+          "bin/placeholder/Service.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Sys.Service.dll": {}
+          "bin/placeholder/Service.dll": {}
         }
       }
     }
@@ -13678,7 +13678,7 @@
       "path": "../Reponsitory/Reponsitory.csproj",
       "msbuildProject": "../Reponsitory/Reponsitory.csproj"
     },
-    "Sys.Service/1.0.0": {
+    "Service/1.0.0": {
       "type": "project",
       "path": "../Service/Service.csproj",
       "msbuildProject": "../Service/Service.csproj"
@@ -13692,8 +13692,8 @@
       "Microsoft.NETCore.App >= 2.2.0",
       "MySql.Data.EntityFrameworkCore >= 8.0.18",
       "Reponsitory >= 1.0.0",
+      "Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.0.0-rc3",
-      "Sys.Service >= 1.0.0",
       "log4net >= 2.0.8"
     ]
   },

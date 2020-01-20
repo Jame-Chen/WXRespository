@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Sys.Reponsitory.Core
+namespace Reponsitory.Core
 {
     public abstract class Entity
     {

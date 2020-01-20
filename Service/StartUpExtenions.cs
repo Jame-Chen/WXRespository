@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Sys.Reponsitory;
-using Sys.Reponsitory.Interface;
+using Reponsitory;
+using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Sys.Service
+namespace Service
 {
     public static class StartUpExtenions
     {

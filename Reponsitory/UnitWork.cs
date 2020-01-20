@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Sys.Reponsitory.Core;
-using Sys.Reponsitory.Interface;
-using Sys.Reponsitory;
+using Reponsitory.Core;
+using Reponsitory.Interface;
+using Reponsitory;
 using Z.EntityFramework.Plus;
 
-namespace Sys.Reponsitory
+namespace Reponsitory
 {
     public class UnitWork : IUnitWork
     {

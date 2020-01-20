@@ -3,10 +3,10 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-using Sys.Reponsitory.Core;
-using Sys.Reponsitory;
+using Reponsitory.Core;
+using Reponsitory;
 
-namespace Sys.Reponsitory.Interface
+namespace Reponsitory.Interface
 {
     /// <summary>
     /// 工作单元接口

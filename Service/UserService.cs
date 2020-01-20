@@ -1,10 +1,13 @@
-﻿using Sys.Reponsitory.Domain.Model;
-using Sys.Reponsitory.Interface;
+﻿using Reponsitory.Model;
+using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Diagnostics;
 
-namespace Sys.Service
+namespace Service
 {
     public class UserService : BaseService<User>
     {
@@ -13,6 +16,10 @@ namespace Sys.Service
 
         }
 
-    
+        public object Test()
+        {
+            var user = Reponsitory.Find(f => true);
+            return user;
+        }
     }
 }

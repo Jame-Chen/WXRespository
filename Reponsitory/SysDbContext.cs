@@ -1,19 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Sys.Reponsitory.Core;
-using Sys.Reponsitory.Domain.Model;
+using Reponsitory.Core;
+using Reponsitory.Model;
 using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Sys.Reponsitory
+namespace Reponsitory
 {
     public class SysDbContext : DbContext
     {
         public SysDbContext(DbContextOptions<SysDbContext> options)
            : base(options)
         {
-            base.Database.EnsureCreated();
+           
         }
 
 
