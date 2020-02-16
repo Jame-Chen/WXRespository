@@ -4,6 +4,14 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+	<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+	<StartupObject></StartupObject>
+  </PropertyGroup>
+<PropertyGroup>
+<GenerateDocumentationFile>true</GenerateDocumentationFile>
+</PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -29,8 +37,8 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Sys.Reponsitory\Sys.Reponsitory.csproj" />
-    <ProjectReference Include="..\Sys.Service\Sys.Service.csproj" />
+    <ProjectReference Include="..\Reponsitory\Reponsitory.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
 

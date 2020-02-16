@@ -8,27 +8,21 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using MyNetCore.Middleware;
-using Sys.Reponsitory;
-using Sys.Reponsitory.Core;
-using Sys.Service;
+using Reponsitory;
+using Service;
 using Microsoft.OpenApi.Models;
 using System.IO;
-using Sys.Reponsitory.Interface;
-using Microsoft.Extensions.Logging;
 using MyNetCore.Filter;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
-using MySql;
 using Microsoft.AspNetCore.HttpOverrides;
-using System.Net;
 
 namespace MyNetCore
 {
@@ -54,10 +48,10 @@ namespace MyNetCore
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
-            });
+            //services.Configure<ForwardedHeadersOptions>(options =>
+            //{
+            //    options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
+            //});
             //跨域
             services.AddCors(options =>
             {
@@ -139,8 +133,11 @@ namespace MyNetCore
 
 
             var conn = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
-            services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Sys.Service") }, null, ServiceLifetime.Scoped);
+
+            services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
+            //services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
+            services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Service") }, null, ServiceLifetime.Scoped);
+
 
         }
 
@@ -166,7 +163,12 @@ namespace MyNetCore
             app.UseCors("AllowSubdomain");
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
-       
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             app.UseAuthentication();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -179,7 +181,7 @@ namespace MyNetCore
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.RoutePrefix = string.Empty;
             });
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseMvc();

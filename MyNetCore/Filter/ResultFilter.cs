@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using MyNetCore.Models;
 
 public class ResultFilter : ActionFilterAttribute
 {
@@ -18,15 +19,15 @@ public class ResultFilter : ActionFilterAttribute
             {
                 msg = "未找到资源!";
             }
-            context.Result = new ObjectResult(new { code = objectResult.StatusCode, msg = msg, result = "" });
+            context.Result = new ObjectResult(new Result { Code = objectResult.StatusCode.ToString(), Msg = msg, Data = "" });
         }
         else if (context.Result is EmptyResult)
         {
-            context.Result = new ObjectResult(new { code = 404, msg = "未找到资源!", result = "" });
+            context.Result = new ObjectResult(new Result { Code = "404", Msg = "未找到资源!", Data = "" });
         }
         else if (context.Result is ContentResult)
         {
-            context.Result = new ObjectResult(new { Code = 200, Msg = "操作成功!", Result = (context.Result as ContentResult).Content });
+            context.Result = new ObjectResult(new Result { Code = "200", Msg = "操作成功!", Data = (context.Result as ContentResult).Content });
         }
         else if (context.Result is ObjectResult)
         {
@@ -44,7 +45,7 @@ public class ResultFilter : ActionFilterAttribute
             {
                 msg = "数据验证失败!";
             }
-            context.Result = new ObjectResult(new { code = objectResult.StatusCode, msg = msg, result = objectResult.Value != null ? objectResult.Value : "" });
+            context.Result = new ObjectResult(new Result{ Code = objectResult.StatusCode.ToString(), Msg = msg, Data = objectResult.Value != null ? objectResult.Value : "" });
 
         }
     }

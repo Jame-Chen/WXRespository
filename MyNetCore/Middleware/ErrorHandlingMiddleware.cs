@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using Newtonsoft.Json;
 using log4net;
+using MyNetCore.Models;
 
 namespace MyNetCore.Middleware
 {
@@ -38,7 +39,7 @@ namespace MyNetCore.Middleware
             // else if (ex is UnauthorizedException) code = HttpStatusCode.Unauthorized;
             // else if (ex is MyException)             code = HttpStatusCode.BadRequest;
             code = HttpStatusCode.OK;
-            var result = JsonConvert.SerializeObject(new { code = 500, msg = "程序错误", result = ex.Message });
+            var result = JsonConvert.SerializeObject(new Result { Code = "500", Msg = "程序错误", Data = ex.Message });
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
             log.Error(

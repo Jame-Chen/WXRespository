@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.deps.json
 C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.runtimeconfig.json
 C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.runtimeconfig.dev.json
@@ -33,3 +34,41 @@ C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyN
 C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csproj.CopyComplete
 C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.dll
 C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.pdb
+=======
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.deps.json
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.runtimeconfig.json
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.runtimeconfig.dev.json
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.Views.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.Views.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Reponsitory.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Reponsitory.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csproj.CoreCompileInputs.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorAssemblyInfo.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorAssemblyInfo.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.AssemblyInfoInputs.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.AssemblyInfo.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.TagHelpers.input.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.TagHelpers.output.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorCoreGenerate.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorTargetAssemblyInfo.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.RazorTargetAssemblyInfo.cs
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.Views.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csproj.CopyComplete
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\MyNetCore.xml
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csprojAssemblyReference.cache
+D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.xml
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Service.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Service.pdb
+>>>>>>> MyNetCore/master

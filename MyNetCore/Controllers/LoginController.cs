@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace MyNetCore.Controllers
 {
     [Route("api/[controller]/[action]")]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
 

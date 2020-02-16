@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
+using MyNetCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +23,17 @@ namespace MyNetCore.Filter
         {
             await base.OnAuthorizationAsync(context);
             if (context.Filters.Any(item => item is IAllowAnonymousFilter))
+
             {
                 return;
             }
             if (!context.HttpContext.User.Identity.IsAuthenticated)
             {
-                var data = new
+                var data = new Result
                 {
-                    code = 401,
-                    msg = "身份验证失败!",
+                    Code = "401",
+                    Msg = "身份验证失败!",
+                    Data = null
                 };
                 context.Result = new JsonResult(data);
                 return;
