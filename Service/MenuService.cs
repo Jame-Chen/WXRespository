@@ -1,4 +1,4 @@
-﻿using Reponsitory.Model;
+﻿using Model;
 using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;

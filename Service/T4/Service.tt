@@ -1,0 +1,32 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)\Model\bin\Debug\netstandard2.0\Model.dll" #>
+<#@ import namespace="Model" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO"#>
+<#@ import namespace="System"#>
+<#@ import namespace="System.Configuration"#>   
+<#@ output extension=".cs" #>
+<#@include file="$(SolutionDir)\T4\MultipleOutputHelper.ttinclude"#> 
+
+<# 
+	var assembly = System.Reflection.Assembly.GetAssembly(typeof(Entity));
+	var types = assembly.GetTypes().Where(x => typeof(Entity).IsAssignableFrom(x) && !x.IsAbstract && !x.IsInterface);
+
+	var manager = Manager.Create(Host, GenerationEnvironment);  
+		foreach (var type in types)
+		{
+		   
+			// 定义输出文件
+			manager.StartNewFile(type.Name+"Service.cs");
+#>
+<#=type.Name#>
+<# 
+    // 结束输出文件
+    manager.EndBlock();
+ } 
+    // 执行编译
+    manager.Process(true);  
+ #> 

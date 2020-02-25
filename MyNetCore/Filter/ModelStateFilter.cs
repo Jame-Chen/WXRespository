@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Model;
 using MyNetCore.Models;
 
 public class ModelStateFilter : IActionFilter

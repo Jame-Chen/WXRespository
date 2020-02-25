@@ -1,4 +1,4 @@
-﻿using Reponsitory.Model;
+﻿using Model;
 using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;
@@ -16,10 +16,6 @@ namespace Service
 
         }
 
-        public object Test()
-        {
-            var user = Reponsitory.Find(f => true);
-            return user;
-        }
+     
     }
 }

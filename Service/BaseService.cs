@@ -1,4 +1,5 @@
-﻿using Reponsitory.Core;
+﻿using Model.Core;
+using Model;
 using Reponsitory.Interface;
 using System;
 using System.Collections.Generic;
@@ -18,41 +19,70 @@ namespace Service
             Reponsitory = repository;
         }
 
-        public List<T> GetAll()
+        public Result AddEntity(T Entity)
         {
-            List<T> list = Reponsitory.Find().ToList();
-            return list;
+            Result ret = new Result();
+            try
+            {
+                Reponsitory.Add(Entity);
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
         }
 
-        public T GetModelById(string Id)
+
+        public Result UpdateEntity(T Entity)
         {
-            T model = Reponsitory.Find(f => f.Id == Id).FirstOrDefault();
-            return model;
+            Result ret = new Result();
+            try
+            {
+                Reponsitory.Update(Entity);
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
         }
 
-        public void AddEntity(T Entity)
+        public Result DeleteEntity(string Id)
         {
-            Reponsitory.Add(Entity);
+            Result ret = new Result();
+            try
+            {
+                Reponsitory.Delete(w => w.Id == Id);
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
         }
 
-        public void BatchAdd(T[] Entities)
+        public Result BatchDelete(string ids)
         {
-            Reponsitory.BatchAdd(Entities);
-        }
+            Result ret = new Result();
+            try
+            {
+                Reponsitory.Delete(w => ids.Contains(w.Id));
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
 
-        public void UpdateEntity(T Entity)
-        {
-            Reponsitory.Update(Entity);
-        }
-
-        public void DeleteEntity(string Id)
-        {
-            Reponsitory.Delete(d => d.Id == Id);
-        }
-
-        public void BatchDelete(string ids)
-        {
-            Reponsitory.Delete(d => ids.Contains(d.Id));
         }
     }
 }

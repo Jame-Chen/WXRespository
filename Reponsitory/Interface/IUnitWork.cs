@@ -3,8 +3,7 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
-using Reponsitory.Core;
-using Reponsitory;
+using Model.Core;
 
 namespace Reponsitory.Interface
 {

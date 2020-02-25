@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Reponsitory.Model;
+using Model;
 using Service;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,23 +21,9 @@ namespace MyNetCore.Controllers
         {
             user = _user;
         }
-        [HttpGet]
-        public IActionResult Test()
-        {
-            return Ok(user.Test());
-        }
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok(user.GetAll());
-        }
+       
 
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public IActionResult Get(string id)
-        {
-            return Ok(user.GetModelById(id));
-        }
+   
 
         // POST api/<controller>
         [HttpPost]

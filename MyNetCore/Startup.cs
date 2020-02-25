@@ -126,10 +126,13 @@ namespace MyNetCore
             });
             services.AddMvc(options =>
             {
-                options.Filters.Add<ResultFilter>();
+                options.Filters.Add<ModelStateFilter>();
                 options.Filters.Add<ActionFilter>();
-                options.Filters.Add<MyAuthorizeFilter>();
-            }).AddControllersAsServices().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                options.Filters.Add<IdentityAuthorizeFilter>();
+            })
+            .AddControllersAsServices()
+            .AddJsonOptions(opt => { opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver(); })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 
             var conn = Configuration.GetConnectionString("DefaultConnection");
@@ -137,8 +140,6 @@ namespace MyNetCore
             services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
             //services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
             services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Service") }, null, ServiceLifetime.Scoped);
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -163,7 +164,6 @@ namespace MyNetCore
             app.UseCors("AllowSubdomain");
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
-
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -184,13 +184,11 @@ namespace MyNetCore
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseMvc();
-
             //app.UseMvc(routes =>
             //{
             //    routes.MapRoute(
             //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //        template: "api/{controller=Home}/{action=Index}/{id?}");
             //});
         }
     }

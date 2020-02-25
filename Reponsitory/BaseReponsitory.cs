@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Reponsitory;
-using Reponsitory.Core;
+using Model.Core;
 using Reponsitory.Interface;
 using Z.EntityFramework.Plus;
 

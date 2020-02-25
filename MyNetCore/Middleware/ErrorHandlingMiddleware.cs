@@ -7,6 +7,7 @@ using System.Net;
 using Newtonsoft.Json;
 using log4net;
 using MyNetCore.Models;
+using Model;
 
 namespace MyNetCore.Middleware
 {

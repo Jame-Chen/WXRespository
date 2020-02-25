@@ -5,40 +5,6 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Department/Get": {
-      "get": {
-        "tags": [
-          "Department"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Department/Get/{id}": {
-      "get": {
-        "tags": [
-          "Department"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/Department/Post": {
       "post": {
         "tags": [
@@ -70,13 +36,30 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
           }
         }
       }
     },
     "/api/Department/Put": {
-      "put": {
+      "post": {
         "tags": [
           "Department"
         ],
@@ -106,13 +89,30 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
           }
         }
       }
     },
     "/api/Department/Delete/{id}": {
-      "delete": {
+      "post": {
         "tags": [
           "Department"
         ],
@@ -128,7 +128,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
           }
         }
       }
@@ -137,40 +154,6 @@
       "get": {
         "tags": [
           "Login"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Menu/Get": {
-      "get": {
-        "tags": [
-          "Menu"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Menu/Get/{id}": {
-      "get": {
-        "tags": [
-          "Menu"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -255,40 +238,6 @@
       "delete": {
         "tags": [
           "Menu"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Role/Get": {
-      "get": {
-        "tags": [
-          "Role"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Role/Get/{id}": {
-      "get": {
-        "tags": [
-          "Role"
         ],
         "parameters": [
           {
@@ -401,40 +350,6 @@
         }
       }
     },
-    "/api/UploadFile/Get": {
-      "get": {
-        "tags": [
-          "UploadFile"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/UploadFile/Get/{id}": {
-      "get": {
-        "tags": [
-          "UploadFile"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/UploadFile/Post": {
       "post": {
         "tags": [
@@ -511,52 +426,6 @@
       "delete": {
         "tags": [
           "UploadFile"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/Test": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/Get": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/Get/{id}": {
-      "get": {
-        "tags": [
-          "User"
         ],
         "parameters": [
           {
@@ -675,36 +544,36 @@
       "Department": {
         "type": "object",
         "properties": {
-          "name": {
+          "Name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "parentId": {
+          "ParentId": {
             "maxLength": 50,
             "minLength": 0,
             "type": "integer",
             "format": "int32"
           },
-          "status": {
+          "Status": {
             "maxLength": 20,
             "minLength": 0,
             "type": "integer",
             "format": "int32"
           },
-          "createTime": {
+          "CreateTime": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "createId": {
+          "CreateId": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "id": {
+          "Id": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
@@ -713,41 +582,60 @@
         },
         "additionalProperties": false
       },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "Msg": {
+            "type": "string",
+            "nullable": true
+          },
+          "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Menu": {
         "type": "object",
         "properties": {
-          "name": {
+          "Name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "parentId": {
+          "ParentId": {
             "type": "integer",
             "format": "int32"
           },
-          "icon": {
+          "Icon": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "status": {
+          "Status": {
             "type": "integer",
             "format": "int32"
           },
-          "createTime": {
+          "CreateTime": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "createId": {
+          "CreateId": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "id": {
+          "Id": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
@@ -759,28 +647,28 @@
       "Role": {
         "type": "object",
         "properties": {
-          "name": {
+          "Name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "status": {
+          "Status": {
             "type": "integer",
             "format": "int32"
           },
-          "createTime": {
+          "CreateTime": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "createId": {
+          "CreateId": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "id": {
+          "Id": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
@@ -792,85 +680,85 @@
       "UploadFile": {
         "type": "object",
         "properties": {
-          "fileName": {
+          "FileName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "filePath": {
+          "FilePath": {
             "maxLength": 200,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "Description": {
             "maxLength": 250,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "fileType": {
+          "FileType": {
             "maxLength": 20,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "fileSize": {
+          "FileSize": {
             "type": "integer",
             "format": "int64"
           },
-          "extension": {
+          "Extension": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "enable": {
+          "Enable": {
             "type": "boolean"
           },
-          "sortCode": {
+          "SortCode": {
             "type": "integer",
             "format": "int32"
           },
-          "deleteMark": {
+          "DeleteMark": {
             "type": "boolean"
           },
-          "createUserId": {
+          "CreateUserId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "createUserName": {
+          "CreateUserName": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "createTime": {
+          "CreateTime": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "thumbnail": {
+          "Thumbnail": {
             "maxLength": 200,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "ownTable": {
+          "OwnTable": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "ownId": {
+          "OwnId": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "id": {
+          "Id": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
@@ -882,44 +770,44 @@
       "User": {
         "type": "object",
         "properties": {
-          "account": {
+          "Account": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "name": {
+          "Name": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "sex": {
+          "Sex": {
             "type": "integer",
             "format": "int32"
           },
-          "status": {
+          "Status": {
             "type": "integer",
             "format": "int32"
           },
-          "createTime": {
+          "CreateTime": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "createId": {
+          "CreateId": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "id": {
+          "Id": {
             "maxLength": 50,
             "minLength": 0,
             "type": "string",
