@@ -72,3 +72,15 @@ D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.xml
 D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Service.dll
 D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\Service.pdb
 >>>>>>> MyNetCore/master
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.deps.json
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.runtimeconfig.json
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.runtimeconfig.dev.json
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.xml
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.Views.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\MyNetCore.Views.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\Reponsitory.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\Service.dll
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\Reponsitory.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\Service.pdb
