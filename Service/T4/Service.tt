@@ -32,7 +32,7 @@ using System.Text;
 
 namespace Service
 {
-    public class <#=type.Name#>Service : BaseService<<#=type.Name#>>
+    public partial class <#=type.Name#>Service : BaseService<<#=type.Name#>>
     {
         public <#=type.Name#>Service(IUnitWork UnitWork, IReponsitory<<#=type.Name#>> reponsitory) : base(UnitWork, reponsitory)
         {

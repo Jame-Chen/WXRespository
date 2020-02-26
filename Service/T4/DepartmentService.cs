@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Service
 {
-    public class DepartmentService : BaseService<Department>
+    public partial class DepartmentService : BaseService<Department>
     {
         public DepartmentService(IUnitWork UnitWork, IReponsitory<Department> reponsitory) : base(UnitWork, reponsitory)
         {

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Service
 {
-    public class MenuService : BaseService<Menu>
+    public partial class MenuService : BaseService<Menu>
     {
         public MenuService(IUnitWork UnitWork, IReponsitory<Menu> reponsitory) : base(UnitWork, reponsitory)
         {

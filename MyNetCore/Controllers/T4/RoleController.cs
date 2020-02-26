@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,31 +12,34 @@ using Service;
 namespace MyNetCore.Controllers
 {
 
-    public partial class DepartmentController : BaseController
+    public partial class  RoleController : BaseController
     {
-        private readonly DepartmentService department;
-        public DepartmentController(DepartmentService _department)
+        private readonly  RoleService  role;
+        public RoleController( RoleService _role)
         {
-            department = _department;
+            role = _role;
         }
 
         [HttpPost]
-        public Result Add([FromBody]Department model)
+        public Result Add([FromBody]Role model)
         {
-            return department.AddEntity(model);
+            return role.AddEntity(model);
         }
-        
+
         [HttpPost]
-        public Result Update([FromBody]Department model)
+        public Result Update([FromBody]Role model)
         {
-            return department.UpdateEntity(model);
+            return role.UpdateEntity(model);
         }
-        
+
         [HttpPost("{id}")]
         public Result Delete(string id)
         {
-            return department.DeleteEntity(id);
+            return role.DeleteEntity(id);
         }
     }
 }
+
+
+
 

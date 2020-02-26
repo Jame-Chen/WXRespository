@@ -49,6 +49,28 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <None Update="Controllers\T4\TextFile.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TextFile.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Update="Controllers\T4\TextFile.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TextFile.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="http://json.schemastore.org/chutzpah" /></VisualStudio></ProjectExtensions>
 
 </Project>
