@@ -2,6 +2,7 @@
 <#@ assembly name="System.Core" #>
 <#@ assembly name="$(SolutionDir)\Model\bin\Debug\netstandard2.0\Model.dll" #>
 <#@ import namespace="Model" #>
+<#@ import namespace="Model.Core" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -22,7 +23,25 @@
 			// 定义输出文件
 			manager.StartNewFile(type.Name+"Service.cs");
 #>
-<#=type.Name#>
+
+using Model;
+using Reponsitory.Interface;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Service
+{
+    public class <#=type.Name#>Service : BaseService<<#=type.Name#>>
+    {
+        public <#=type.Name#>Service(IUnitWork UnitWork, IReponsitory<<#=type.Name#>> reponsitory) : base(UnitWork, reponsitory)
+        {
+
+        }
+
+    
+    }
+}
 <# 
     // 结束输出文件
     manager.EndBlock();

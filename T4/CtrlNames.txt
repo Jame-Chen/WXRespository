@@ -1,5 +1,0 @@
-Department
-Menu
-Role
-UploadFile
-User
