@@ -54,28 +54,22 @@ namespace MyNetCore.Filter
         {
             base.OnActionExecuted(context);
             Stopwatch.Stop();
-
             string url = context.HttpContext.Request.Host + context.HttpContext.Request.Path + context.HttpContext.Request.QueryString;
             string method = context.HttpContext.Request.Method;
-
             string qs = ActionArguments;
-
-            dynamic result = context.Result.GetType().Name == "EmptyResult" ? new { Value = "无返回结果" } : context.Result as dynamic;
-
             string res = "在返回结果前发生了异常";
             try
             {
+                dynamic result = context.Result == null ? new { Value = "无返回结果" } : context.Result as dynamic;
                 if (result != null)
                 {
                     res = Newtonsoft.Json.JsonConvert.SerializeObject(result.Value);
                 }
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                res = "日志未获取到结果，返回的数据无法序列化";
+                res = e.Message;
             }
-
-
             log.Info(//$"\n 方法：{LogFlag} \n " +
                 $"地址：{url} \n " +
                 $"方式：{method} \n " +

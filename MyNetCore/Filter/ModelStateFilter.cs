@@ -6,12 +6,12 @@ using MyNetCore.Models;
 
 public class ModelStateFilter : IActionFilter
     {
-        public void OnActionExecuted(ActionExecutedContext context)
-        {
+    public void OnActionExecuted(ActionExecutedContext context)
+    {
+      
+    }
 
-        }
-
-        public void OnActionExecuting(ActionExecutingContext context)
+    public void OnActionExecuting(ActionExecutingContext context)
         {
             if (!context.ModelState.IsValid)
             {

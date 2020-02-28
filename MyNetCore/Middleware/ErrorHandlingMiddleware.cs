@@ -40,7 +40,7 @@ namespace MyNetCore.Middleware
             // else if (ex is UnauthorizedException) code = HttpStatusCode.Unauthorized;
             // else if (ex is MyException)             code = HttpStatusCode.BadRequest;
             code = HttpStatusCode.OK;
-            var result = JsonConvert.SerializeObject(new Result { Code = "500", Msg = "程序错误", Data = ex.Message });
+            var result = JsonConvert.SerializeObject(new Result { Code = "500", Msg = "程序异常", Data = ex.Message });
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
             log.Error(

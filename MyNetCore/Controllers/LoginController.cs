@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,8 +22,9 @@ namespace MyNetCore.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Authenticate()
+        public Result Authenticate()
         {
+            Result ret = new Result();
             var tokenHandler = new JwtSecurityTokenHandler();
             var authTime = DateTime.UtcNow;
             var expiresAt = authTime.AddDays(7);
@@ -41,7 +43,7 @@ namespace MyNetCore.Controllers
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
-            var ret = new
+            var jwt = new
             {
                 access_token = tokenString,
                 token_type = "Bearer",
@@ -53,7 +55,11 @@ namespace MyNetCore.Controllers
                     expires_at = new DateTimeOffset(expiresAt).ToUnixTimeSeconds()
                 }
             };
-            return Ok(ret);
+            ret.Data = jwt;
+            return ret;
         }
+
+
+       
     }
 }
