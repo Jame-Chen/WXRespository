@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Model</name>
+    </assembly>
+    <members>
+        <member name="T:Model.Core.TreeEntity">
+            <summary>
+            树状结构实体
+            </summary>
+        </member>
+        <member name="P:Model.Core.TreeEntity.CascadeId">
+            <summary>
+            节点语义ID
+            </summary>
+        </member>
+        <member name="P:Model.Core.TreeEntity.Name">
+            <summary>
+            功能模块名称
+            </summary>
+        </member>
+        <member name="P:Model.Core.TreeEntity.ParentId">
+            <summary>
+            父节点流水号
+            </summary>
+        </member>
+        <member name="P:Model.Core.TreeEntity.ParentName">
+            <summary>
+            父节点名称
+            </summary>
+        </member>
+        <member name="T:Model.Department">
+            <summary>
+            部门表
+            </summary>
+        </member>
+        <member name="P:Model.Department.Name">
+            <summary>
+            部门名称
+            </summary>
+        </member>
+        <member name="P:Model.Department.ParentId">
+            <summary>
+            上级部门Id
+            </summary>
+        </member>
+        <member name="P:Model.Department.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:Model.Department.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Model.Department.CreateId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="T:Model.Menu">
+            <summary>
+            菜单表
+            </summary>
+        </member>
+        <member name="P:Model.Menu.Name">
+            <summary>
+            菜单名称
+            </summary>
+        </member>
+        <member name="P:Model.Menu.ParentId">
+            <summary>
+            上级菜单Id
+            </summary>
+        </member>
+        <member name="P:Model.Menu.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Model.Menu.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:Model.Menu.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Model.Menu.CreateId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="T:Model.Role">
+            <summary>
+            角色表
+            </summary>
+        </member>
+        <member name="P:Model.Role.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:Model.Role.Status">
+            <summary>
+            当前状态
+            </summary>
+        </member>
+        <member name="P:Model.Role.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Model.Role.CreateId">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="T:Model.UploadFile">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.FileName">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.FilePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.FileType">
+            <summary>
+            文件类型
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.FileSize">
+            <summary>
+            文件大小
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.Extension">
+            <summary>
+            扩展名称
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.Enable">
+            <summary>
+            是否可用
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.SortCode">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.DeleteMark">
+            <summary>
+            删除标识
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.CreateUserId">
+            <summary>
+            上传人
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.CreateUserName">
+            <summary>
+            上传人姓名
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.CreateTime">
+            <summary>
+            上传时间
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.Thumbnail">
+            <summary>
+            缩略图
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.OwnTable">
+            <summary>
+            所属表
+            </summary>
+        </member>
+        <member name="P:Model.UploadFile.OwnId">
+            <summary>
+            所属ID
+            </summary>
+        </member>
+        <member name="T:Model.User">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:Model.User.Account">
+            <summary>
+            用户登录帐号
+            </summary>
+        </member>
+        <member name="P:Model.User.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Model.User.Name">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:Model.User.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Model.User.Status">
+            <summary>
+            用户状态
+            </summary>
+        </member>
+        <member name="P:Model.User.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Model.User.CreateId">
+            <summary>
+            创建人
+            </summary>
+        </member>
+    </members>
+</doc>

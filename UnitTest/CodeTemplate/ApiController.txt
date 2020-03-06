@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using {ModelsNamespace};
+using {ServicesNamespace};
+
+namespace {ControllersNamespace}
+{
+
+    public partial class  {ModelTypeName}Controller : BaseController
+    {
+        private readonly  {ModelTypeName}Service  {ModelTypeNameLower};
+        public {ModelTypeName}Controller( {ModelTypeName}Service _{ModelTypeNameLower})
+        {
+            {ModelTypeNameLower} = _{ModelTypeNameLower};
+        }
+          /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Result Add([FromBody]{ModelTypeName} model)
+        {
+            return {ModelTypeNameLower}.AddEntity(model);
+        }
+          /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public Result Update([FromBody]{ModelTypeName} model)
+        {
+            return {ModelTypeNameLower}.UpdateEntity(model);
+        }
+         /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost("{id}")]
+        public Result Delete(string id)
+        {
+            return {ModelTypeNameLower}.DeleteEntity(id);
+        }
+    }
+}
+
+
+
+

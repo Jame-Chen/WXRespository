@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Model;
 using Service;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace MyNetCore.Controllers
 {
 
@@ -19,19 +17,31 @@ namespace MyNetCore.Controllers
         {
             menu = _menu;
         }
-
+          /// <summary>
+        /// 新增
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public Result Add([FromBody]Menu model)
         {
             return menu.AddEntity(model);
         }
-
+          /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public Result Update([FromBody]Menu model)
         {
             return menu.UpdateEntity(model);
         }
-
+         /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost("{id}")]
         public Result Delete(string id)
         {

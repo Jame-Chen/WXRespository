@@ -110,7 +110,10 @@ namespace MyNetCore
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                var modelxmlFile = "Model.xml";
+                var modelxmlPath = Path.Combine(AppContext.BaseDirectory, modelxmlFile);
                 c.IncludeXmlComments(xmlPath);
+                c.IncludeXmlComments(modelxmlPath);
                 // 添加swagger对身份认证的支持
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                             {
@@ -131,6 +134,7 @@ namespace MyNetCore
                 options.Filters.Add<IdentityAuthorizeFilter>();
             })
             .AddControllersAsServices()
+            //返回的大小写固定
             .AddJsonOptions(opt => { opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver(); })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

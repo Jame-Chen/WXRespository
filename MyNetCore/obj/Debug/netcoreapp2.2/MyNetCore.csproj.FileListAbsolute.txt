@@ -78,3 +78,4 @@ D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.Views.
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.csproj.CopyComplete
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.dll
 D:\陈静\Git项目\MyNetCore\MyNetCore\obj\Debug\netcoreapp2.2\MyNetCore.pdb
+D:\陈静\Git项目\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\netcoreapp2.2\Model.xml

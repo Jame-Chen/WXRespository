@@ -4,6 +4,111 @@
         <name>MyNetCore</name>
     </assembly>
     <members>
+        <member name="M:MyNetCore.Controllers.DepartmentController.Add(Model.Department)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.DepartmentController.Update(Model.Department)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.DepartmentController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.MenuController.Add(Model.Menu)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.MenuController.Update(Model.Menu)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.MenuController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.RoleController.Add(Model.Role)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.RoleController.Update(Model.Role)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.RoleController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.UploadFileController.Add(Model.UploadFile)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.UploadFileController.Update(Model.UploadFile)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.UploadFileController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.UserController.Add(Model.User)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.UserController.Update(Model.User)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.UserController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="P:MyNetCore.Filter.ActionFilter.RequestBody">
             <summary>
             请求体中的所有值

@@ -17,12 +17,12 @@ namespace UnitTest
         public void TestCodeGenerator()
         {
             CodeGenerator cg = new CodeGenerator(new CodeGenerateOption { 
-               OutputPath="D:\\Test\\Mysql",
             ModelsNamespace="Model",
-            ServicesNamespace="Service",
-            ControllersNamespace="MyNetCore.Controller"
-            });
-            cg.Generate();
+            RepositoriesNamespace= "Reponsitory",
+            ServicesNamespace ="Service",
+            ControllersNamespace="MyNetCore.Controllers"
+            });;
+            cg.GenerateMyNetCore();
         }
     }
 }

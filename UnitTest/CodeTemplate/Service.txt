@@ -1,0 +1,18 @@
+﻿using {RepositoriesNamespace}.Interface;
+using {ModelsNamespace};
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace  {ServicesNamespace}
+{
+    public partial class {ModelTypeName}Service : BaseService<{ModelTypeName}>
+    {
+        public {ModelTypeName}Service(IUnitWork UnitWork, IReponsitory<{ModelTypeName}> reponsitory) : base(UnitWork, reponsitory)
+        {
+
+        }
+
+    
+    }
+}
