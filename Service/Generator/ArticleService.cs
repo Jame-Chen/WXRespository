@@ -15,15 +15,22 @@ namespace Service
         {
 
         }
-        //public async Task<Result> AddArticle(string Url)
-        //{
-          
-        //}
 
-        private void GetData(string d)
+        public Result GetArticle(int Page, int PageSize)
         {
-            var sd = d;
+            Result ret = new Result();
+            try
+            {
+                var query = Reponsitory.Find(Page, PageSize, s => s.InsertTime, s => true, false);
+                ret.Data = query;
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
         }
-
     }
 }

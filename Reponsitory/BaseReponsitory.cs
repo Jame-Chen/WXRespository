@@ -47,12 +47,20 @@ namespace Reponsitory
         /// <param name="pageindex">The pageindex.</param>
         /// <param name="pagesize">The pagesize.</param>
         /// <param name="orderby">排序</param>
-        public IQueryable<T> Find<S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null)
+        public IQueryable<T> Find<S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null, bool Asc = true)
         {
             if (pageindex < 1)
                 pageindex = 1;
-
-            return Filter(exp).OrderBy(orderByLambda).Skip(pagesize * (pageindex - 1)).Take(pagesize);
+            var query = Filter(exp);
+            if (Asc)
+            {
+                query = query.OrderBy(orderByLambda);
+            }
+            else
+            {
+                query = query.OrderByDescending(orderByLambda);
+            }
+            return query.Skip(pagesize * (pageindex - 1)).Take(pagesize);
         }
 
         /// <summary>

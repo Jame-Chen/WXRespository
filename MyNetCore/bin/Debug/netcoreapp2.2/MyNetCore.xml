@@ -11,6 +11,14 @@
             <param name="Url"></param>
             <returns></returns>
         </member>
+        <member name="M:MyNetCore.Controllers.ArticleController.GetArticle(System.Int32,System.Int32)">
+            <summary>
+            文章列表
+            </summary>
+            <param name="Page">默认1</param>
+            <param name="PageSize">默认10</param>
+            <returns></returns>
+        </member>
         <member name="M:MyNetCore.Controllers.ArticleController.Add(Model.Article)">
             <summary>
             新增

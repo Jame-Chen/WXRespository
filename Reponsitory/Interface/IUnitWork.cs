@@ -21,7 +21,7 @@ namespace Reponsitory.Interface
         bool IsExist<T>(Expression<Func<T, bool>> exp) where T:class;
         IQueryable<T> Find<T>(Expression<Func<T, bool>> exp = null) where T:class;
 
-        IQueryable<T> Find<T, S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null) where T : class;
+        IQueryable<T> Find<T, S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null,bool Asc=true) where T : class;
 
 
        int GetCount<T>(Expression<Func<T, bool>> exp = null) where T:class;

@@ -32,18 +32,18 @@ namespace MyNetCore.Controllers
             {
                 var data = await new WebClient().Get(Url).IgnoreSsl().ResultAsync();
                 //var links = Regex.Matches(data, @"<tr\s+class=""[^>*]""><td\s+class=""country""><img\s+src=""[^>]*""\s+alt=""Cn""\s+/></td><td>(?<Ip>[^>]*)</td><td>(?<Port>[^>]*)</td><td><a\s+href=""[^>]*"">[^>]*</a></td><td\s+class=""country"">[^>]*</td><td>(?<Http>[^>]*)</td><td\s+class=""country""><div\s+title=""[^>]*""\s+class=""bar""><div\s+class=""[^>]*""\s+style=""[^>]*""></div></div></td><td\s+class=""country""><div\s+title=""[^>]*""\s+class=""bar""><div\s+class=""[^>]*""\s+style=""[^>]*""></div></div></td><td>(?<TimeDes>[^>]*)</td><td>[^>]*</td></tr>", RegexOptions.IgnoreCase);
-
                 var title = Regex.Matches(data, @"<meta property=""og:title"" content=""(?<title>[^>]*)"" />");
                 var img = Regex.Matches(data, @"<meta property=""og:image"" content=""(?<img>[^>]*)"" />");
                 var creator = Regex.Matches(data, @"<meta property=""og:creator"" content=""(?<creator>[^>]*)"" />");
                 var readnum = Regex.Matches(data, @"<span id=""readNum3"">(?<readnum>[^>]*)</span>");
-                Article article = new Article();
-                article.Url = Url;
-                article.Title = title[0].Groups["title"].Value;
-                article.PicUrl = img[0].Groups["img"].Value;
-                article.Author = creator.Count>0?(creator[0].Groups["creator"].Value):"";
-                article.ReadNum = readnum.Count>0?(string.IsNullOrEmpty(readnum[0].Groups["readnum"].Value) ? 0 : Convert.ToInt32(readnum[0].Groups["readnum"].Value)):0;
-                ret.Data = article;
+                Article model = new Article();
+                model.Url = Url;
+                model.Title = title.Count > 0 ? title[0].Groups["title"].Value : "";
+                model.PicUrl = img.Count > 0 ? img[0].Groups["img"].Value : "";
+                model.Author = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "";
+                model.ReadNum = readnum.Count > 0 ? (string.IsNullOrEmpty(readnum[0].Groups["readnum"].Value) ? 0 : Convert.ToInt32(readnum[0].Groups["readnum"].Value)) : 0;
+                article.AddEntity(model);
+                ret.Data = model;
             }
             catch (Exception e)
             {
@@ -52,6 +52,16 @@ namespace MyNetCore.Controllers
                 throw;
             }
             return ret;
+        }
+        /// <summary>
+        /// 文章列表
+        /// </summary>
+        /// <param name="Page">默认1</param>
+        /// <param name="PageSize">默认10</param>
+        /// <returns></returns>
+        public Result GetArticle(int Page = 1, int PageSize = 10)
+        {
+            return article.GetArticle(Page, PageSize);
         }
         /// <summary>
         /// 新增

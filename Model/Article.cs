@@ -18,7 +18,7 @@ namespace Model
         public string Author { get; set; }
         public int ReadNum { get; set; }
         public int LikeNum { get; set; }
-        [StringLength(100)]
+        [StringLength(300)]
         public string PicUrl { get; set; }
         [StringLength(20)]
         public string PubTime { get; set; }

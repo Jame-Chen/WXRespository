@@ -12,7 +12,7 @@ namespace Reponsitory.Interface
         bool IsExist(Expression<Func<T, bool>> exp);
         IQueryable<T> Find(Expression<Func<T, bool>> exp = null);
 
-        IQueryable<T> Find<S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null);
+        IQueryable<T> Find<S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null, bool Asc=true);
 
         int GetCount(Expression<Func<T, bool>> exp = null);
 
