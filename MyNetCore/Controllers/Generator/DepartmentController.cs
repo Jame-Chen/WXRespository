@@ -10,14 +10,14 @@ using Service;
 namespace MyNetCore.Controllers
 {
 
-    public partial class  DepartmentController : BaseController
+    public partial class DepartmentController : BaseController
     {
-        private readonly  DepartmentService  department;
-        public DepartmentController( DepartmentService _department)
+        private readonly DepartmentService department;
+        public DepartmentController(DepartmentService _department)
         {
             department = _department;
         }
-          /// <summary>
+        /// <summary>
         /// 新增
         /// </summary>
         /// <param name="model"></param>
@@ -27,7 +27,7 @@ namespace MyNetCore.Controllers
         {
             return department.AddEntity(model);
         }
-          /// <summary>
+        /// <summary>
         /// 修改
         /// </summary>
         /// <param name="model"></param>
@@ -37,7 +37,7 @@ namespace MyNetCore.Controllers
         {
             return department.UpdateEntity(model);
         }
-         /// <summary>
+        /// <summary>
         /// 删除
         /// </summary>
         /// <param name="id"></param>

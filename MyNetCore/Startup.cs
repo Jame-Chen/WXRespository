@@ -131,7 +131,7 @@ namespace MyNetCore
             {
                 options.Filters.Add<ModelStateFilter>();
                 options.Filters.Add<ActionFilter>();
-                options.Filters.Add<IdentityAuthorizeFilter>();
+                //options.Filters.Add<IdentityAuthorizeFilter>();
             })
             .AddControllersAsServices()
             //返回的大小写固定

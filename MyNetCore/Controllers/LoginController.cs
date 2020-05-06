@@ -21,7 +21,6 @@ namespace MyNetCore.Controllers
     {
 
         [HttpGet]
-        [AllowAnonymous]
         public Result Authenticate()
         {
             Result ret = new Result();

@@ -4,6 +4,34 @@
         <name>MyNetCore</name>
     </assembly>
     <members>
+        <member name="M:MyNetCore.Controllers.ArticleController.AddArticle(System.String)">
+            <summary>
+            文章发帖
+            </summary>
+            <param name="Url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.ArticleController.Add(Model.Article)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.ArticleController.Update(Model.Article)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.ArticleController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MyNetCore.Controllers.DepartmentController.Add(Model.Department)">
             <summary>
             新增

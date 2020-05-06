@@ -21,7 +21,7 @@ namespace UnitTest
             RepositoriesNamespace= "Reponsitory",
             ServicesNamespace ="Service",
             ControllersNamespace="MyNetCore.Controllers"
-            });;
+            });
             cg.GenerateMyNetCore();
         }
     }
