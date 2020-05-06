@@ -35,13 +35,13 @@ namespace MyNetCore.Controllers
                 var title = Regex.Matches(data, @"<meta property=""og:title"" content=""(?<title>[^>]*)"" />");
                 var img = Regex.Matches(data, @"<meta property=""og:image"" content=""(?<img>[^>]*)"" />");
                 var creator = Regex.Matches(data, @"<meta property=""og:creator"" content=""(?<creator>[^>]*)"" />");
-                var readnum = Regex.Matches(data, @"<span id=""readNum3"">(?<readnum>[^>]*)</span>");
+                //var readnum = Regex.Matches(data, @"<span id=""readNum3"">(?<readnum>[^>]*)</span>");
                 Article model = new Article();
                 model.Url = Url;
                 model.Title = title.Count > 0 ? title[0].Groups["title"].Value : "";
                 model.PicUrl = img.Count > 0 ? img[0].Groups["img"].Value : "";
-                model.Author = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "";
-                model.ReadNum = readnum.Count > 0 ? (string.IsNullOrEmpty(readnum[0].Groups["readnum"].Value) ? 0 : Convert.ToInt32(readnum[0].Groups["readnum"].Value)) : 0;
+                model.Author = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "管理员";
+                model.ReadNum = 0;
                 article.AddEntity(model);
                 ret.Data = model;
             }
@@ -57,9 +57,10 @@ namespace MyNetCore.Controllers
         /// 文章列表
         /// </summary>
         /// <param name="Page">默认1</param>
-        /// <param name="PageSize">默认10</param>
+        /// <param name="PageSize">默认20</param>
         /// <returns></returns>
-        public Result GetArticle(int Page = 1, int PageSize = 10)
+        [HttpGet]
+        public Result GetArticle(int Page = 1, int PageSize = 20)
         {
             return article.GetArticle(Page, PageSize);
         }
