@@ -6,11 +6,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Admin\Documents\Project\MyNetCore\MyNetCore\bin\Debug\netcoreapp2.2\</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\陈静\Git项目\MyNetCore\MyNetCore\Release</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <DestinationConnectionStrings Include="DefaultConnection">
-      <Value>server=101.132.100.25%3buser id=root%3bpwd=1qaz%40wsx%3bdatabase=SysDb%3b</Value>
+      <Value>server=101.132.100.25%3bPort=3307%3buser id=root%3bpwd=1qaz%40wsx%3bdatabase=WXDB%3b</Value>
     </DestinationConnectionStrings>
   </ItemGroup>
 </Project>

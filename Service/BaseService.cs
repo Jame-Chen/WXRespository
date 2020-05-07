@@ -34,8 +34,6 @@ namespace Service
             }
             return ret;
         }
-
-
         public Result UpdateEntity(T Entity)
         {
             Result ret = new Result();
@@ -83,6 +81,18 @@ namespace Service
             }
             return ret;
 
+        }
+
+        /// <summary>  
+        /// DateTime时间格式转换为Unix时间戳格式  
+        /// </summary>  
+        /// <param name="time"> DateTime时间格式</param>  
+        /// <returns>Unix时间戳格式</returns>  
+        public static string ConvertDateTimeInt(System.DateTime time)
+        {
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
+            long unixTime = (long)System.Math.Round((time - startTime).TotalMilliseconds, MidpointRounding.AwayFromZero);
+            return unixTime.ToString();
         }
     }
 }

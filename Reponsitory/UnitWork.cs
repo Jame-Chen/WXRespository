@@ -33,7 +33,9 @@ namespace Reponsitory
 
         public bool IsExist<T>(Expression<Func<T, bool>> exp) where T : class
         {
-            return _context.Set<T>().Any(exp);
+            var a = _context.Set<T>();
+            var flag = a.Any(exp);
+            return flag;
         }
 
         /// <summary>
@@ -50,7 +52,7 @@ namespace Reponsitory
         /// <param name="pageindex">The pageindex.</param>
         /// <param name="pagesize">The pagesize.</param>
         /// <param name="orderby">排序</param>
-        public IQueryable<T> Find<T, S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null,bool Asc=true) where T : class
+        public IQueryable<T> Find<T, S>(int pageindex, int pagesize, Expression<Func<T, S>> orderByLambda, Expression<Func<T, bool>> exp = null, bool Asc = true) where T : class
         {
             if (pageindex < 1) pageindex = 1;
             var query = Filter(exp);

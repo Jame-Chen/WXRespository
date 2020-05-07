@@ -5409,7 +5409,9 @@
           "Microsoft.EntityFrameworkCore": "2.1.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.2",
           "Microsoft.Extensions.Configuration": "2.2.0",
+          "Microsoft.Extensions.Logging.Debug": "2.2.0",
           "Model": "1.0.0",
+          "MySql.Data.EntityFrameworkCore": "8.0.18",
           "Z.EntityFramework.Plus.EFCore": "1.8.18"
         },
         "compile": {

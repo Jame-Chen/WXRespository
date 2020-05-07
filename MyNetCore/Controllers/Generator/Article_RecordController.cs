@@ -11,14 +11,15 @@ using Service;
 
 namespace MyNetCore.Controllers
 {
-    //[AllowAnonymous]
-    public partial class ArticleController : BaseController
+
+    public partial class  Article_RecordController : BaseController
     {
-        private readonly ArticleService article;
-        public ArticleController(ArticleService _article)
+        private readonly  Article_RecordService  article_record;
+        public Article_RecordController( Article_RecordService _article_record)
         {
-            article = _article;
+            article_record = _article_record;
         }
+
         /// <summary>
         /// 文章发帖
         /// </summary>
@@ -36,14 +37,13 @@ namespace MyNetCore.Controllers
                 var img = Regex.Matches(data, @"<meta property=""og:image"" content=""(?<img>[^>]*)"" />");
                 var creator = Regex.Matches(data, @"<meta property=""og:creator"" content=""(?<creator>[^>]*)"" />");
                 //var readnum = Regex.Matches(data, @"<span id=""readNum3"">(?<readnum>[^>]*)</span>");
-                Article model = new Article();
-                model.Url = Url;
-                model.Title = title.Count > 0 ? title[0].Groups["title"].Value : "";
-                model.PicUrl = img.Count > 0 ? img[0].Groups["img"].Value : "";
-                model.Author = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "管理员";
-                model.ReadNum = 0;
-                article.AddEntity(model);
-                ret.Data = model;
+                Article_Record model = new Article_Record();
+                model.article_url = Url;
+                model.article_title_auto = title.Count > 0 ? title[0].Groups["title"].Value : "";
+                model.article_cdnurl_auto = img.Count > 0 ? img[0].Groups["img"].Value : "";
+                model.article_userid = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "管理员";
+              ret=  article_record.AddArticle(model);
+               
             }
             catch (Exception e)
             {
@@ -53,6 +53,8 @@ namespace MyNetCore.Controllers
             }
             return ret;
         }
+
+
         /// <summary>
         /// 文章列表
         /// </summary>
@@ -62,7 +64,7 @@ namespace MyNetCore.Controllers
         [HttpGet]
         public Result GetArticle(int Page = 1, int PageSize = 20)
         {
-            return article.GetArticle(Page, PageSize);
+            return article_record.GetArticle(Page, PageSize);
         }
         /// <summary>
         /// 新增
@@ -70,21 +72,21 @@ namespace MyNetCore.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public Result Add([FromBody]Article model)
+        public Result Add([FromBody]Article_Record model)
         {
-            return article.AddEntity(model);
+            return article_record.AddEntity(model);
         }
-        /// <summary>
+          /// <summary>
         /// 修改
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public Result Update([FromBody]Article model)
+        public Result Update([FromBody]Article_Record model)
         {
-            return article.UpdateEntity(model);
+            return article_record.UpdateEntity(model);
         }
-        /// <summary>
+         /// <summary>
         /// 删除
         /// </summary>
         /// <param name="id"></param>
@@ -92,7 +94,7 @@ namespace MyNetCore.Controllers
         [HttpPost("{id}")]
         public Result Delete(string id)
         {
-            return article.DeleteEntity(id);
+            return article_record.DeleteEntity(id);
         }
     }
 }

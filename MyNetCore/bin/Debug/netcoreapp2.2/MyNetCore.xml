@@ -4,36 +4,57 @@
         <name>MyNetCore</name>
     </assembly>
     <members>
-        <member name="M:MyNetCore.Controllers.ArticleController.AddArticle(System.String)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.AddArticle(System.String)">
             <summary>
             文章发帖
             </summary>
             <param name="Url"></param>
             <returns></returns>
         </member>
-        <member name="M:MyNetCore.Controllers.ArticleController.GetArticle(System.Int32,System.Int32)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.GetArticle(System.Int32,System.Int32)">
             <summary>
             文章列表
             </summary>
             <param name="Page">默认1</param>
-            <param name="PageSize">默认10</param>
+            <param name="PageSize">默认20</param>
             <returns></returns>
         </member>
-        <member name="M:MyNetCore.Controllers.ArticleController.Add(Model.Article)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.Add(Model.Article_Record)">
             <summary>
             新增
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:MyNetCore.Controllers.ArticleController.Update(Model.Article)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.Update(Model.Article_Record)">
             <summary>
             修改
             </summary>
             <param name="model"></param>
             <returns></returns>
         </member>
-        <member name="M:MyNetCore.Controllers.ArticleController.Delete(System.String)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Article_StatusController.Add(Model.Article_Status)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Article_StatusController.Update(Model.Article_Status)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Article_StatusController.Delete(System.String)">
             <summary>
             删除
             </summary>

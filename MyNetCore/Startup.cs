@@ -139,8 +139,8 @@ namespace MyNetCore
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var conn = Configuration.GetConnectionString("DefaultConnection");
-            //services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
-            services.AddDbContext<SysDbContext>(options => options.UseMySQL(conn), ServiceLifetime.Scoped);
+            services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
+            //services.AddDbContext<SysDbContext>(options => options.UseMySql(conn), ServiceLifetime.Scoped);
             services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Service") }, null, ServiceLifetime.Scoped);
           
 

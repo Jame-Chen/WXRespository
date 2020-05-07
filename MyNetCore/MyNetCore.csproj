@@ -46,7 +46,9 @@
 
 
   <ItemGroup>
+    <Folder Include="Controllers\Generator\" />
     <Folder Include="Log\" />
+    <Folder Include="Release\" />
   </ItemGroup>
 
 

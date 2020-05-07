@@ -10,12 +10,12 @@ using Service;
 namespace MyNetCore.Controllers
 {
 
-    public partial class  DepartmentController : BaseController
+    public partial class  Article_StatusController : BaseController
     {
-        private readonly  DepartmentService  department;
-        public DepartmentController( DepartmentService _department)
+        private readonly  Article_StatusService  article_status;
+        public Article_StatusController( Article_StatusService _article_status)
         {
-            department = _department;
+            article_status = _article_status;
         }
           /// <summary>
         /// 新增
@@ -23,9 +23,9 @@ namespace MyNetCore.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public Result Add([FromBody]Department model)
+        public Result Add([FromBody]Article_Status model)
         {
-            return department.AddEntity(model);
+            return article_status.AddEntity(model);
         }
           /// <summary>
         /// 修改
@@ -33,9 +33,9 @@ namespace MyNetCore.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
-        public Result Update([FromBody]Department model)
+        public Result Update([FromBody]Article_Status model)
         {
-            return department.UpdateEntity(model);
+            return article_status.UpdateEntity(model);
         }
          /// <summary>
         /// 删除
@@ -45,7 +45,7 @@ namespace MyNetCore.Controllers
         [HttpPost("{id}")]
         public Result Delete(string id)
         {
-            return department.DeleteEntity(id);
+            return article_status.DeleteEntity(id);
         }
     }
 }
