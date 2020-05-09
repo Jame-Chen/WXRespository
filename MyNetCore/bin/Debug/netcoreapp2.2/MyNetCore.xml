@@ -82,6 +82,27 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:MyNetCore.Controllers.Fatiecard_DetailController.Add(Model.Fatiecard_Detail)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Fatiecard_DetailController.Update(Model.Fatiecard_Detail)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Fatiecard_DetailController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MyNetCore.Controllers.MenuController.Add(Model.Menu)">
             <summary>
             新增
@@ -160,6 +181,27 @@
             <returns></returns>
         </member>
         <member name="M:MyNetCore.Controllers.UserController.Delete(System.String)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.User_InfoController.Add(Model.User_Info)">
+            <summary>
+            新增
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.User_InfoController.Update(Model.User_Info)">
+            <summary>
+            修改
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.User_InfoController.Delete(System.String)">
             <summary>
             删除
             </summary>

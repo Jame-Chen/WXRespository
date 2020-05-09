@@ -27,6 +27,13 @@
     <DocumentationFile>bin\Debug\MyNetCore.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Release\**" />
+    <Content Remove="Release\**" />
+    <EmbeddedResource Remove="Release\**" />
+    <None Remove="Release\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="IdentityServer4" Version="2.5.2" />
@@ -48,7 +55,6 @@
   <ItemGroup>
     <Folder Include="Controllers\Generator\" />
     <Folder Include="Log\" />
-    <Folder Include="Release\" />
   </ItemGroup>
 
 

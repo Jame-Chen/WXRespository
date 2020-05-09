@@ -53,14 +53,14 @@ namespace MyNetCore
             //    options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
             //});
             //跨域
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowSubdomain",
-                builder =>
-                {
-                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
-                });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowSubdomain",
+            //    builder =>
+            //    {
+            //        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            //    });
+            //});
             //身份认证
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(o =>
@@ -142,9 +142,6 @@ namespace MyNetCore
             services.AddDbContext<SysDbContext>(options => options.UseSqlServer(conn), ServiceLifetime.Scoped);
             //services.AddDbContext<SysDbContext>(options => options.UseMySql(conn), ServiceLifetime.Scoped);
             services.BatchRegisterService(new Assembly[] { Assembly.GetExecutingAssembly(), Assembly.Load("Service") }, null, ServiceLifetime.Scoped);
-          
-
-        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -161,29 +158,20 @@ namespace MyNetCore
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
-
-            app.UseCors("AllowSubdomain");
+            //app.UseForwardedHeaders(new ForwardedHeadersOptions
+            //{
+            //    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            //});
+            //app.UseCors("AllowSubdomain");
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
-
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
-
             app.UseAuthentication();
-
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi");
                 c.RoutePrefix = string.Empty;
             });
             //app.UseHttpsRedirection();

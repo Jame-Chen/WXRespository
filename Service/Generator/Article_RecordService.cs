@@ -65,14 +65,16 @@ namespace Service
             {
                 var record = UnitWork.Find<Article_Record>(f => f.is_delete == false);
                 var status = UnitWork.Find<Article_Status>(f => f.is_delete == false);
+                var user = UnitWork.Find<User_Info>(f => f.is_delete == false);
                 var querya = from a in record
                              join b in status on a.Id equals b.article_id
+                             join c in user on a.article_userid equals c.wechat_code
                              select new
                              {
                                  Url = a.article_url,
                                  PicUrl = a.article_cdnurl_self != null ? a.article_cdnurl_self : a.article_cdnurl_auto,
                                  Title = a.article_title_self != null ? a.article_title_self : a.article_title_auto,
-                                 Author = a.article_userid,
+                                 Author = c.user_nickname,
                                  PubTimeDes = ConvertDateTimeInt(b.gmt_modified),
                                  ModifyTime = b.gmt_modified,
                                  PubTime = b.gmt_modified.ToString("yyyy-MM-dd"),
