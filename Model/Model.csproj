@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\陈静\Git项目\MyNetCore\Model\Model.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\Admin\Documents\Project\WXRespository\Model\Model.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>

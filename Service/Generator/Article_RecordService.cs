@@ -5,23 +5,27 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq.Expressions;
 using System.Linq;
+using System.Net;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Service
 {
     public partial class Article_RecordService : BaseService<Article_Record>
     {
-        public Article_RecordService(IUnitWork UnitWork, IReponsitory<Article_Record> reponsitory) : base(UnitWork, reponsitory)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public Article_RecordService(IUnitWork UnitWork, IReponsitory<Article_Record> reponsitory, IHostingEnvironment hostingEnvironment) : base(UnitWork, reponsitory)
         {
-
+            _hostingEnvironment = hostingEnvironment;
         }
         public Result AddArticle(Article_Record model)
         {
             Result ret = new Result();
-            Expression<Func<Article_Record, bool>> exp = f => f.is_delete == false && f.article_url == model.article_url && f.article_userid == model.article_userid;
+            Expression<Func<Article_Record, bool>> exp = f => f.is_delete == 0 && f.article_url == model.article_url && f.article_userid == model.article_userid;
             if (UnitWork.IsExist<Article_Record>(exp))
             {
                 var articleid = UnitWork.FindSingle<Article_Record>(exp).Id;
-                var articlestatus = UnitWork.FindSingle<Article_Status>(f => f.is_delete == false && f.article_id == articleid);
+                var articlestatus = UnitWork.FindSingle<Article_Status>(f => f.is_delete == 0 && f.article_id == articleid);
                 articlestatus.article_read_max = articlestatus.article_read_max + 20;
                 articlestatus.article_status = 0;
                 articlestatus.gmt_modified = DateTime.Now;
@@ -55,7 +59,10 @@ namespace Service
                 ret.Msg = "用户:" + model.article_userid + ",不存在！";
                 return ret;
             }
+            //下载图片到服务器
+            model.article_cdnurl_auto = DownFile(model.article_cdnurl_auto);
             UnitWork.Save();
+            ret.Data = model;
             return ret;
         }
         public Result GetArticle(int Page, int PageSize)
@@ -63,14 +70,15 @@ namespace Service
             Result ret = new Result();
             try
             {
-                var record = UnitWork.Find<Article_Record>(f => f.is_delete == false);
-                var status = UnitWork.Find<Article_Status>(f => f.is_delete == false);
-                var user = UnitWork.Find<User_Info>(f => f.is_delete == false);
+                var record = UnitWork.Find<Article_Record>(f => f.is_delete == 0);
+                var status = UnitWork.Find<Article_Status>(f => f.is_delete == 0);
+                var user = UnitWork.Find<User_Info>(f => f.is_delete == 0);
                 var querya = from a in record
                              join b in status on a.Id equals b.article_id
                              join c in user on a.article_userid equals c.wechat_code
                              select new
                              {
+                                 Id = a.Id,
                                  Url = a.article_url,
                                  PicUrl = a.article_cdnurl_self != null ? a.article_cdnurl_self : a.article_cdnurl_auto,
                                  Title = a.article_title_self != null ? a.article_title_self : a.article_title_auto,
@@ -92,5 +100,54 @@ namespace Service
             return ret;
         }
 
+
+        public string DownFile(string url)
+        {
+            //获取网站当前根目录
+            string sWebRootFolder = _hostingEnvironment.WebRootPath;
+            //保存图片路径
+            var savePath = string.Format("\\File\\{0}\\{1}\\{2}\\", DateTime.Now.Year, DateTime.Now.Month.ToString("D2"), DateTime.Now.Day.ToString("D2"));
+            //文件名
+            string filename = Guid.NewGuid().ToString("N"); // System.IO.Path.GetFileName(url);
+            //扩展名
+            string extension = url.Contains("wx_fmt") ? "." + url.Substring(url.LastIndexOf("wx_fmt") + 7) : System.IO.Path.GetExtension(url);
+            savePath = sWebRootFolder + savePath;
+            //无夹创建
+            if (!Directory.Exists(savePath))
+            {
+                Directory.CreateDirectory(savePath);
+            }
+            WebClient mywebclient = new WebClient();
+            //下载文件
+            mywebclient.DownloadFile(url, savePath + filename + extension);
+            string path = string.Format("/File/{0}/{1}/{2}/{3}", DateTime.Now.Year, DateTime.Now.Month.ToString("D2"), DateTime.Now.Day.ToString("D2"), filename + extension);
+            return path;
+        }
+
+        public Result Delete(string Id)
+        {
+            Result ret = new Result();
+            try
+            {
+                var Article_Record = UnitWork.FindSingle<Article_Record>(w => w.Id == Id);
+                Article_Record.is_delete = 1;
+                var Article_Status = UnitWork.FindSingle<Article_Status>(w => w.article_id == Id);
+                Article_Status.is_delete = 1;
+                UnitWork.Save();
+                ret.Data = new
+                {
+                    Article_Record = Article_Record,
+                    Article_Status = Article_Status
+                };
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
+
+        }
     }
 }

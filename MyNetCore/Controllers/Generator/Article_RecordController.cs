@@ -13,10 +13,10 @@ using Service;
 namespace MyNetCore.Controllers
 {
 
-    public partial class  Article_RecordController : BaseController
+    public partial class Article_RecordController : BaseController
     {
-        private readonly  Article_RecordService  article_record;
-        public Article_RecordController( Article_RecordService _article_record)
+        private readonly Article_RecordService article_record;
+        public Article_RecordController(Article_RecordService _article_record)
         {
             article_record = _article_record;
         }
@@ -42,9 +42,15 @@ namespace MyNetCore.Controllers
                 model.article_url = Url;
                 model.article_title_auto = title.Count > 0 ? title[0].Groups["title"].Value : "";
                 model.article_cdnurl_auto = img.Count > 0 ? img[0].Groups["img"].Value : "";
+                if (title.Count == 0 || img.Count == 0)
+                {
+                    ret.Code = "404";
+                    ret.Msg = "链接无效,请检查！";
+                    return ret;
+                }
                 model.article_userid = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "管理员";
-              ret=  article_record.AddArticle(model);
-               
+                ret = article_record.AddArticle(model);
+
             }
             catch (Exception e)
             {
@@ -77,7 +83,7 @@ namespace MyNetCore.Controllers
         {
             return article_record.AddEntity(model);
         }
-          /// <summary>
+        /// <summary>
         /// 修改
         /// </summary>
         /// <param name="model"></param>
@@ -87,7 +93,7 @@ namespace MyNetCore.Controllers
         {
             return article_record.UpdateEntity(model);
         }
-         /// <summary>
+        /// <summary>
         /// 删除
         /// </summary>
         /// <param name="id"></param>
@@ -95,7 +101,7 @@ namespace MyNetCore.Controllers
         [HttpPost("{id}")]
         public Result Delete(string id)
         {
-            return article_record.DeleteEntity(id);
+            return article_record.Delete(id);
         }
     }
 }

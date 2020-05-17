@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -55,6 +55,7 @@
   <ItemGroup>
     <Folder Include="Controllers\Generator\" />
     <Folder Include="Log\" />
+    <Folder Include="wwwroot\File\2020\05\16\" />
   </ItemGroup>
 
 
