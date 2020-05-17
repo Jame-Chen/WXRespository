@@ -8,6 +8,8 @@ using System.Linq;
 using System.Net;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Service
 {
@@ -18,6 +20,8 @@ namespace Service
         {
             _hostingEnvironment = hostingEnvironment;
         }
+
+        
         public Result AddArticle(Article_Record model)
         {
             Result ret = new Result();
@@ -59,8 +63,6 @@ namespace Service
                 ret.Msg = "用户:" + model.article_userid + ",不存在！";
                 return ret;
             }
-            //下载图片到服务器
-            model.article_cdnurl_auto = DownFile(model.article_cdnurl_auto);
             UnitWork.Save();
             ret.Data = model;
             return ret;
@@ -71,7 +73,7 @@ namespace Service
             try
             {
                 var record = UnitWork.Find<Article_Record>(f => f.is_delete == 0);
-                var status = UnitWork.Find<Article_Status>(f => f.is_delete == 0);
+                var status = UnitWork.Find<Article_Status>(f => f.is_delete == 0&&f.article_read_max!=0);
                 var user = UnitWork.Find<User_Info>(f => f.is_delete == 0);
                 var querya = from a in record
                              join b in status on a.Id equals b.article_id
@@ -100,13 +102,55 @@ namespace Service
             return ret;
         }
 
+        public Result ReadArticle(string Id) {
+            Result ret = new Result();
+            try
+            {
+             
+                var status = UnitWork.FindSingle<Article_Status>(f => f.article_id==Id );
+                if (status.article_read_max==status.article_read_number)
+                {
+                    ret.Code = "500";
+                    ret.Msg = "文章阅读数已满！";
+                    return ret;
+                }
+                status.article_read_number = status.article_read_number +1;
+                UnitWork.Update<Article_Status>(status);
+                UnitWork.Save();
+                ret.Data = status;
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
+        }
 
+        public async Task<Article_Record> UrlParsing(string Url) {
+
+            var data = await new Bing.Utils.Webs.Clients.WebClient().Get(Url).IgnoreSsl().ResultAsync();
+            //var links = Regex.Matches(data, @"<tr\s+class=""[^>*]""><td\s+class=""country""><img\s+src=""[^>]*""\s+alt=""Cn""\s+/></td><td>(?<Ip>[^>]*)</td><td>(?<Port>[^>]*)</td><td><a\s+href=""[^>]*"">[^>]*</a></td><td\s+class=""country"">[^>]*</td><td>(?<Http>[^>]*)</td><td\s+class=""country""><div\s+title=""[^>]*""\s+class=""bar""><div\s+class=""[^>]*""\s+style=""[^>]*""></div></div></td><td\s+class=""country""><div\s+title=""[^>]*""\s+class=""bar""><div\s+class=""[^>]*""\s+style=""[^>]*""></div></div></td><td>(?<TimeDes>[^>]*)</td><td>[^>]*</td></tr>", RegexOptions.IgnoreCase);
+            var title = Regex.Matches(data, @"<meta property=""og:title"" content=""(?<title>[^>]*)"" />");
+            var img = Regex.Matches(data, @"<meta property=""og:image"" content=""(?<img>[^>]*)"" />");
+            var creator = Regex.Matches(data, @"<meta property=""og:creator"" content=""(?<creator>[^>]*)"" />");
+            //var readnum = Regex.Matches(data, @"<span id=""readNum3"">(?<readnum>[^>]*)</span>");
+            Article_Record model = new Article_Record();
+            model.article_url = Url;
+            model.article_title_auto = title.Count > 0 ? title[0].Groups["title"].Value : "";
+            model.article_cdnurl_auto = img.Count > 0 ? img[0].Groups["img"].Value : "";
+            model.article_userid = creator.Count > 0 ? (creator[0].Groups["creator"].Value) : "管理员";
+            //下载图片到服务器
+            model.article_cdnurl_auto = DownFile(model.article_cdnurl_auto);
+            return model;
+        }
         public string DownFile(string url)
         {
             //获取网站当前根目录
             string sWebRootFolder = _hostingEnvironment.WebRootPath;
             //保存图片路径
-            var savePath = string.Format("\\File\\{0}\\{1}\\{2}\\", DateTime.Now.Year, DateTime.Now.Month.ToString("D2"), DateTime.Now.Day.ToString("D2"));
+            var savePath = string.Format("/File/{0}/{1}/{2}/", DateTime.Now.Year, DateTime.Now.Month.ToString("D2"), DateTime.Now.Day.ToString("D2"));
             //文件名
             string filename = Guid.NewGuid().ToString("N"); // System.IO.Path.GetFileName(url);
             //扩展名

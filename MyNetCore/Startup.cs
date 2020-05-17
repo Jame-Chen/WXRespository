@@ -53,14 +53,14 @@ namespace MyNetCore
             //    options.KnownProxies.Add(IPAddress.Parse("101.132.100.25"));
             //});
             //跨域
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("AllowSubdomain",
-            //    builder =>
-            //    {
-            //        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
-            //    });
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSubdomain",
+                builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+                });
+            });
             //身份认证
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                .AddJwtBearer(o =>
@@ -162,7 +162,7 @@ namespace MyNetCore
             //{
             //    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             //});
-            //app.UseCors("AllowSubdomain");
+            app.UseCors("AllowSubdomain");
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseAuthentication();
             // Enable middleware to serve generated Swagger as a JSON endpoint.

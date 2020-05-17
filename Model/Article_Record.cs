@@ -11,7 +11,7 @@ namespace Model
     public class Article_Record : Entity
     {
         [StringLength(500)]
-        [Required]
+        [Required(ErrorMessage ="文章地址不能为空！")]
         public string article_url { get; set; }
         [StringLength(40)]
         [Required]

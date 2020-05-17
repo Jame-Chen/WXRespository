@@ -4,11 +4,18 @@
         <name>MyNetCore</name>
     </assembly>
     <members>
-        <member name="M:MyNetCore.Controllers.Article_RecordController.AddArticle(System.String)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.UrlParsing(System.String)">
+            <summary>
+            Url地址解析
+            </summary>
+            <param name="Url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Article_RecordController.AddArticle(Model.Article_Record)">
             <summary>
             文章发帖
             </summary>
-            <param name="Url"></param>
+            <param name="model"></param>
             <returns></returns>
         </member>
         <member name="M:MyNetCore.Controllers.Article_RecordController.GetArticle(System.Int32,System.Int32)">
@@ -17,6 +24,13 @@
             </summary>
             <param name="Page">默认1</param>
             <param name="PageSize">默认20</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyNetCore.Controllers.Article_RecordController.ReadArticle(System.String)">
+            <summary>
+            阅读文章
+            </summary>
+            <param name="Id"></param>
             <returns></returns>
         </member>
         <member name="M:MyNetCore.Controllers.Article_RecordController.Add(Model.Article_Record)">
