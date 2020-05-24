@@ -26,11 +26,12 @@
             <param name="PageSize">默认20</param>
             <returns></returns>
         </member>
-        <member name="M:MyNetCore.Controllers.Article_RecordController.ReadArticle(System.String)">
+        <member name="M:MyNetCore.Controllers.Article_RecordController.ReadArticle(System.String,System.String)">
             <summary>
             阅读文章
             </summary>
             <param name="Id"></param>
+            <param name="UserId"></param>
             <returns></returns>
         </member>
         <member name="M:MyNetCore.Controllers.Article_RecordController.Add(Model.Article_Record)">

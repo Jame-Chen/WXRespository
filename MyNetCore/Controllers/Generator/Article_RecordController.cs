@@ -87,10 +87,11 @@ namespace MyNetCore.Controllers
         /// 阅读文章
         /// </summary>
         /// <param name="Id"></param>
+        /// <param name="UserId"></param>
         /// <returns></returns>
         [HttpPost]
-        public Result ReadArticle(string Id) {
-            return article_record.ReadArticle(Id);
+        public Result ReadArticle(string Id,string UserId) {
+            return article_record.ReadArticle(Id,UserId);
         }
         /// <summary>
         /// 新增
