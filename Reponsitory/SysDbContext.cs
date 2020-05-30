@@ -21,6 +21,7 @@ namespace Reponsitory
         public DbSet<Article_Status> Article_Status { get; set; }
         public DbSet<User_Info> User_Info { get; set; }
         public DbSet<Fatiecard_Detail> Fatiecard_Detail { get; set; }
+        public DbSet<Article_ReadHistory> Article_ReadHistory { get; set; }
 
         public static readonly LoggerFactory MyLoggerFactory = new LoggerFactory(new[] {
             new DebugLoggerProvider()

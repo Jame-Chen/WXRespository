@@ -75,9 +75,12 @@ namespace Service
                 var record = UnitWork.Find<Article_Record>(f => f.is_delete == 0);
                 var status = UnitWork.Find<Article_Status>(f => f.is_delete == 0&&f.article_read_max!=0);
                 var user = UnitWork.Find<User_Info>(f => f.is_delete == 0);
+                var readHis = UnitWork.Find<Article_ReadHistory>(f => f.is_delete == 0);
                 var querya = from a in record
                              join b in status on a.Id equals b.article_id
                              join c in user on a.article_userid equals c.wechat_code
+                             join d in readHis on new { articleid=a.Id,userid=a.article_userid} equals new { articleid=d.article_id,userid=d.user_id } into djoin
+                             from dj in djoin.DefaultIfEmpty()
                              select new
                              {
                                  Id = a.Id,
@@ -88,7 +91,8 @@ namespace Service
                                  PubTimeDes = ConvertDateTimeInt(b.gmt_modified),
                                  ModifyTime = b.gmt_modified,
                                  PubTime = b.gmt_modified.ToString("yyyy-MM-dd"),
-                                 ReadNum = b.article_read_number + "/" + b.article_read_max
+                                 ReadNum = b.article_read_number + "/" + b.article_read_max,
+                                 IsRead=djoin.Any()
                              };
                 var query = querya.OrderByDescending(o => o.ModifyTime).Skip(Page * (Page - 1)).Take(PageSize);
                 ret.Data = query;
@@ -102,20 +106,28 @@ namespace Service
             return ret;
         }
 
-        public Result ReadArticle(string Id) {
+        public Result ReadArticle(string Id,string UserId) {
             Result ret = new Result();
             try
             {
              
-                var status = UnitWork.FindSingle<Article_Status>(f => f.article_id==Id );
+                var status = UnitWork.FindSingle<Article_Status>(f => f.article_id==Id);
                 if (status.article_read_max==status.article_read_number)
                 {
                     ret.Code = "500";
                     ret.Msg = "ÎÄÕÂÔÄ¶ÁÊýÒÑÂú£¡";
                     return ret;
                 }
-                status.article_read_number = status.article_read_number +1;
-                UnitWork.Update<Article_Status>(status);
+                var readHis = UnitWork.IsExist<Article_ReadHistory>(f => f.user_id == UserId && f.article_id == Id);
+                if (!readHis)
+                {
+                    status.article_read_number = status.article_read_number + 1;
+                    Article_ReadHistory arh = new Article_ReadHistory();
+                    arh.article_id = Id;
+                    arh.user_id = UserId;
+                    UnitWork.Add<Article_ReadHistory>(arh);
+                    UnitWork.Update<Article_Status>(status);
+                }
                 UnitWork.Save();
                 ret.Data = status;
             }
