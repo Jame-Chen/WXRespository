@@ -10,6 +10,8 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Model.WXModel;
 
 namespace Service
 {
@@ -21,7 +23,7 @@ namespace Service
             _hostingEnvironment = hostingEnvironment;
         }
 
-        
+
         public Result AddArticle(Article_Record model)
         {
             Result ret = new Result();
@@ -73,13 +75,13 @@ namespace Service
             try
             {
                 var record = UnitWork.Find<Article_Record>(f => f.is_delete == 0);
-                var status = UnitWork.Find<Article_Status>(f => f.is_delete == 0&&f.article_read_max!=0);
+                var status = UnitWork.Find<Article_Status>(f => f.is_delete == 0 && f.article_read_max != 0);
                 var user = UnitWork.Find<User_Info>(f => f.is_delete == 0);
                 var readHis = UnitWork.Find<Article_ReadHistory>(f => f.is_delete == 0);
                 var querya = from a in record
                              join b in status on a.Id equals b.article_id
                              join c in user on a.article_userid equals c.wechat_code
-                             join d in readHis on new { articleid=a.Id,userid=a.article_userid} equals new { articleid=d.article_id,userid=d.user_id } into djoin
+                             join d in readHis on new { articleid = a.Id, userid = a.article_userid } equals new { articleid = d.article_id, userid = d.user_id } into djoin
                              from dj in djoin.DefaultIfEmpty()
                              select new
                              {
@@ -92,7 +94,7 @@ namespace Service
                                  ModifyTime = b.gmt_modified,
                                  PubTime = b.gmt_modified.ToString("yyyy-MM-dd"),
                                  ReadNum = b.article_read_number + "/" + b.article_read_max,
-                                 IsRead=djoin.Any()
+                                 IsRead = djoin.Any()
                              };
                 var query = querya.OrderByDescending(o => o.ModifyTime).Skip(Page * (Page - 1)).Take(PageSize);
                 ret.Data = query;
@@ -106,13 +108,14 @@ namespace Service
             return ret;
         }
 
-        public Result ReadArticle(string Id,string UserId) {
+        public Result ReadArticle(string Id, string UserId)
+        {
             Result ret = new Result();
             try
             {
-             
-                var status = UnitWork.FindSingle<Article_Status>(f => f.article_id==Id);
-                if (status.article_read_max==status.article_read_number)
+
+                var status = UnitWork.FindSingle<Article_Status>(f => f.article_id == Id);
+                if (status.article_read_max == status.article_read_number)
                 {
                     ret.Code = "500";
                     ret.Msg = "文章阅读数已满！";
@@ -140,7 +143,8 @@ namespace Service
             return ret;
         }
 
-        public async Task<Article_Record> UrlParsing(string Url) {
+        public async Task<Article_Record> UrlParsing(string Url)
+        {
 
             var data = await new Bing.Utils.Webs.Clients.WebClient().Get(Url).IgnoreSsl().ResultAsync();
             //var links = Regex.Matches(data, @"<tr\s+class=""[^>*]""><td\s+class=""country""><img\s+src=""[^>]*""\s+alt=""Cn""\s+/></td><td>(?<Ip>[^>]*)</td><td>(?<Port>[^>]*)</td><td><a\s+href=""[^>]*"">[^>]*</a></td><td\s+class=""country"">[^>]*</td><td>(?<Http>[^>]*)</td><td\s+class=""country""><div\s+title=""[^>]*""\s+class=""bar""><div\s+class=""[^>]*""\s+style=""[^>]*""></div></div></td><td\s+class=""country""><div\s+title=""[^>]*""\s+class=""bar""><div\s+class=""[^>]*""\s+style=""[^>]*""></div></div></td><td>(?<TimeDes>[^>]*)</td><td>[^>]*</td></tr>", RegexOptions.IgnoreCase);
@@ -157,6 +161,7 @@ namespace Service
             model.article_cdnurl_auto = DownFile(model.article_cdnurl_auto);
             return model;
         }
+
         public string DownFile(string url)
         {
             //获取网站当前根目录
@@ -204,6 +209,39 @@ namespace Service
             }
             return ret;
 
+        }
+
+        public Result GetWXUserInfo(string Appid, string Secret, string Code)
+        {
+            Result ret = new Result();
+            try
+            {
+                var Url = " https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + Appid + "&secret=" + Secret + "&code=" + Code + "&grant_type=authorization_code";
+                var data = Send("Get", Url, "");
+                var accessToken = JsonConvert.DeserializeObject<AccessToken>(data);
+                if (string.IsNullOrEmpty(accessToken.errmsg))
+                {
+                    Url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + accessToken.access_token + "&openid=" + accessToken.openid + "&lang=zh_CN";
+                    var data1 = Send("Get", Url, "");
+                    var userInfo = JsonConvert.DeserializeObject<UserInfo>(data1);
+                    ret.Code = "200";
+                    ret.Msg = "查询成功!";
+                    ret.Data = userInfo;
+                }
+                else
+                {
+                    ret.Code = "500";
+                    ret.Msg = accessToken.errcode + ":" + accessToken.errmsg;
+                }
+
+            }
+            catch (Exception e)
+            {
+                ret.Code = "500";
+                ret.Msg = e.Message;
+                throw;
+            }
+            return ret;
         }
     }
 }

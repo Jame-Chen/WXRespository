@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net.Http;
 
 namespace Service
 {
@@ -93,6 +94,50 @@ namespace Service
             System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1));
             long unixTime = (long)System.Math.Round((time - startTime).TotalMilliseconds, MidpointRounding.AwayFromZero);
             return unixTime.ToString();
+        }
+
+        public static string Send(string httpMethod, string Url, string data)
+        {
+            HttpClient client = new HttpClient();
+            //Uri uri = new Uri("http://localhost:59440/");
+            //client.BaseAddress = uri;
+            HttpResponseMessage responseMessage = null;
+            httpMethod = httpMethod.ToLower();
+            switch (httpMethod)
+            {
+                case "get":
+                    responseMessage = client.GetAsync(Url).Result;
+                    break;
+                case "post":
+                    HttpContent content = new StringContent(data);
+                    content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                    responseMessage = client.PostAsync(Url, content).Result;
+                    break;
+                case "delete":
+                    //controllerName= 'api/baoxiuapi/3'
+                    responseMessage = client.DeleteAsync(Url).Result;
+                    break;
+                case "put":
+                    HttpContent content1 = new StringContent(data);
+                    content1.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                    responseMessage = client.PutAsync(Url, content1).Result;
+                    break;
+                default:
+                    break;
+
+
+            }
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                string result = responseMessage.Content.ReadAsStringAsync().Result;
+                return result;
+            }
+            else
+            {
+                string result = "操作失败";
+                return result;
+            }
         }
     }
 }

@@ -94,6 +94,17 @@ namespace MyNetCore.Controllers
             return article_record.ReadArticle(Id,UserId);
         }
         /// <summary>
+        /// 获取微信用户信息
+        /// </summary>
+        /// <param name="Appid"></param>
+        /// <param name="Secret"></param>
+        /// <param name="Code"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public Result GetWXUserInfo(string Appid, string Secret,string Code) {
+            return article_record.GetWXUserInfo(Appid,Secret,Code);
+        }
+        /// <summary>
         /// 新增
         /// </summary>
         /// <param name="model"></param>
